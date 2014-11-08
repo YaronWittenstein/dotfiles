@@ -3,13 +3,22 @@ ZSH=$HOME/.oh-my-zsh
 
 alias dotfiles='cd ~/dotfiles'
 
+alias c='cd'
+alias cd..='cd ..'
+alias c.='cd..'
+alias c..='cd..'
+alias df='df -h'
+alias ls='ls -G'
+alias l='ls'
+alias la='ls -a'
+alias ll='ls -lG'
+alias grep='grep --color'
+
 # Initialize completion
 autoload -U compinit
 compinit
 
 # colorize terminal
-alias ls='ls -G'
-alias ll='ls -lG'
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
 
