@@ -1,0 +1,15 @@
+[user]
+  name = Yaron Wittenstein
+  email = yaron.wittenstein@gmail.com
+[core]
+  editor = vim
+[github]
+  user = YaronWittenstein
+[color]
+  ui = auto
+[diff]
+  tool = vimdiff
+[diftool]
+  prompt = false
+[push]
+  default = current

@@ -1,0 +1,22 @@
+# any, to the current command.
+function insert-selecta-path-in-command-line() {
+    local selected_path
+    # Print a newline or we'll clobber the old prompt.
+    echo
+    # Find the path; abort if the user doesn't select anything.
+    selected_path=$(find * -type f | selecta) || return
+    # Append the selection to the current command buffer.
+    eval 'LBUFFER="$LBUFFER$selected_path"'
+    # Redraw the prompt since Selecta has drawn several new lines of text.
+    zle reset-prompt
+}
+
+# create the zle widget
+#zle -N insert-selecta-path-in-command-line
+# Bind the key to the newly created widget
+#bindkey "^S" "insert-selecta-path-in-command-line" 
+
+ips () {
+  # determine local IP address
+  ifconfig | grep "inet " | awk '{ print $2 }'
+}
