@@ -111,4 +111,4 @@ alias tmuxconf='vim ~/.tmux.conf'
 alias kcu='knife cookbook upload '
 
 # docker
-alias dl='docker ps -l -q' 
+alias dl='docker ps -l -q'

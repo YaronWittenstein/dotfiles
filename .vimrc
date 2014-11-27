@@ -167,7 +167,6 @@ nnoremap Y y$
 
 " ex mode commands made easy
 nnoremap <space> :
-nnoremap ; :
 
 " Leader
 let mapleader=","
