@@ -22,12 +22,51 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'    " navigate up a directory with '-' in netrw, among other things
+" Plugin 'tpope/vim-unimpaired' " pairs of handy bracket mappings
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/Command-T'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ekalinin/Dockerfile.vim'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UI Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'bling/vim-airline'
+  set laststatus=2  " Always display the status line
+  " let g:airline_theme='luna'
+  let g:airline_powerline_fonts=1
+  let g:airline_enable_branch=1
+  let g:airline_enable_syntastic=1
+  let g:airline_powerline_fonts = 1
+  let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_linecolumn_prefix = '␊ '
+  let g:airline_linecolumn_prefix = '␤ '
+  let g:airline_linecolumn_prefix = '¶ '
+  let g:airline_branch_prefix = '⎇ '
+  let g:airline_paste_symbol = 'ρ'
+  let g:airline_paste_symbol = 'Þ'
+  let g:airline_paste_symbol = '∥'
+  let g:airline#extensions#tabline#enabled = 0
+  " let g:airline_mode_map = {
+  "       \ 'n': 'N',
+  "       \ 'i': 'I',
+  "       \ 'R': 'REPLACE',
+  "       \ 'v': 'VISUAL',
+  "       \ 'V': 'V-LINE',
+  "       \ 'c': 'CMD   ',
+  "       \ '': 'V-BLCK',
+  "       \ }
+
+Plugin 'roman/golden-ratio'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" End UI Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " nelstrom's plugin depends on kana's
 Plugin 'kana/vim-textobj-user'
@@ -50,7 +89,6 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 set history=500   " keep 500 lines of command line history
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
-set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set autoindent    " always set autoindenting on
 set gdefault      " assume the /g flag on :s substitutions to replace all matches in a line
@@ -64,6 +102,7 @@ set nocursorline  " do not highlight current line
 set nowrap
 set backupdir=~/.tmp
 set directory=~/.tmp  " Don't clutter my dirs up with swp and tmp files
+set autowrite         " Save buffer automatically when changing files"
 set autoread          " If a file is changed outside of vim, automatically reload it without asking
 set showmatch
 set guioptions-=T
@@ -71,6 +110,11 @@ set guifont=Consolas:h14
 set mouse=""
 set noerrorbells " don't make noise
 set novisualbell " don't blink
+
+set updatecount=10    "Save buffer every 10 chars typed"
+
+scriptencoding utf-8
+set encoding=utf-8
 
 " Set the tag file search order
 set tags=./tags;
@@ -145,7 +189,7 @@ map <C-p> :cp<CR>
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR> 
+nnoremap <Down> :echoe "Use j"<CR>
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
@@ -203,9 +247,15 @@ set wildignore+=*.o,*.obj,.git
 nnoremap <leader>vi :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Keep the cursor in place while joining lines
+nnoremap J mzJ`z`
+
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
-map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+nnoremap <leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+
+nnoremap <c-n> :bnext<CR>
+nnoremap <c-b> :bprev<CR>
 
 " Better comand-line editing
 cnoremap <c-f> <right>
@@ -222,7 +272,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " Force Saving Files that Require Root Permission edit sudo root file tee save
 cnoremap w!! %!sudo tee > /dev/null %
 
-"Search and replace the word under the cursor
+" Search and replace the word under the cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " Close all other windows, open a vertical split, and open this file's test
@@ -370,10 +420,10 @@ augroup vimrcEx
   autocmd FileType ruby,eruby,yaml setlocal path+=lib
   autocmd FileType ruby,eruby,yaml setlocal path+='lib/*'
 
-  " Make ?s part of words
+  " Make ? part of words
   autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 
-  " Make _s part of words
+  " Make _ part of words
   autocmd FileType ruby,eruby,yaml setlocal iskeyword+=_
 
   " Automatically wrap at 72 characters and spell check git commit messages
@@ -481,7 +531,18 @@ endfunction
 set list listchars=tab:»·,trail:·
 
 
+""""" Normalization ====================
+" Delete trailing white space on save
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+au BufWrite * silent call DeleteTrailingWS()
+""""" End Normalization ================""
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%) 
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
