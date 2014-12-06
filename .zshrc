@@ -44,18 +44,29 @@ alias code='/Users/yaronwittenstein/Dropbox/work/code/'
 alias spot='/Users/yaronwittenstein/spot.im/'
 alias spotserver='/Users/yaronwittenstein/spot.im/server_v3'
 alias spotchef='/Users/yaronwittenstein/spot.im/chef'
-alias hotspot='/Users/yaronwittenstein/spot.im/admin'
+alias hotspot='/Users/yaronwittenstein/spot.im/hotspot'
 alias spotlandingpage='/Users/yaronwittenstein/spot.im/landing-page'
 alias spotfrontend='/Users/yaronwittenstein/spot.im/frontend/'
 alias spotpixeldemo='/Users/yaronwittenstein/spot.im/spotim-pixel-influxdb'
 alias sso-examples='/Users/yaronwittenstein/spot.im/sso-examples'
 alias influxible='/Users/yaronwittenstein/spot.im/influxible'
+alias spotalytics='/Users/yaronwittenstein/spot.im/spotalytics'
+alias spotim-devops-utils='/Users/yaronwittenstein/spot.im/spotim-devops-utils'
 
 alias dev='spotserver; tmux a -t dev'
 
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias rubytapas='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/rubytapas'
 alias railscasts='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/railscasts'
+
+# gem
+alias gemp='fury push *.gem'
+alias gemb='gem build *.gemspec'
+alias  fp='rm *.gem && gem build *.gemspec && fury push *.gem'
+
+alias gi='gem install '
+alias gu='gem uninstall '
+alias gl='gem list'
 
 # git aliases
 alias ga='git add'
@@ -89,11 +100,6 @@ alias grhh='git reset HEAD --hard'
 alias grh='git reset HEAD --hard'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
-# gem
-alias gi='gem install '
-alias gu='gem uninstall '
-alias gl='gem list'
-
 # tmux
 alias tls='tmux ls'
 
@@ -111,7 +117,10 @@ alias zshrc='vim ~/.zshrc'
 alias tmuxconf='vim ~/.tmux.conf'
 
 # chef
+alias kcc='knife cookbook create '
 alias kcu='knife cookbook upload '
+alias kcd='knife cookbook delete '
+alias kcl='knife cookbook list'
 
 # docker
 alias dl='docker ps -l -q'
