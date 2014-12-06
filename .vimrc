@@ -23,7 +23,6 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'    " navigate up a directory with '-' in netrw, among other things
-" Plugin 'tpope/vim-unimpaired' " pairs of handy bracket mappings
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/Command-T'
 Plugin 'airblade/vim-gitgutter'
@@ -182,8 +181,8 @@ nnoremap t <C-]>
 
 map <C-t> <esc>:tabnew<CR>
 map <C-x> <C-w>c
-map <C-n> :cn<CR>
-map <C-p> :cp<CR>
+" map <C-n> :cn<CR>
+" map <C-p> :cp<CR>
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -254,17 +253,17 @@ nnoremap J mzJ`z`
 " uses expression to extract path from current file's path
 nnoremap <leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 
-nnoremap <c-n> :bnext<CR>
-nnoremap <c-b> :bprev<CR>
+nnoremap <C-c> :bnext<CR>
+nnoremap <C-b> :bprev<CR>
 
 " Better comand-line editing
-cnoremap <c-f> <right>
-cnoremap <c-b> <left>
+cnoremap <C-f> <right>
+cnoremap <C-b> <left>
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
 cnoremap <C-a> <home>
 cnoremap <C-e> <end>
-cnoremap <c-d> <del>
+cnoremap <C-d> <del>
 
 " Expand path of current file in command mode remapping command-line mode
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
