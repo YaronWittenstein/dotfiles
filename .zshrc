@@ -117,10 +117,14 @@ alias zshrc='vim ~/.zshrc'
 alias tmuxconf='vim ~/.tmux.conf'
 
 # chef
+# cookbooks
 alias kcc='knife cookbook create '
 alias kcu='knife cookbook upload '
 alias kcd='knife cookbook delete '
 alias kcl='knife cookbook list'
+#roles
+alias krl='knife role list'
+alias krc='knife role create '
 
 # docker
 alias dl='docker ps -l -q'
@@ -175,7 +179,7 @@ unsetopt BEEP                # No beeps on error
 unsetopt HIST_BEEP           # No history beeps
 unsetopt LIST_BEEP           # No list beeps
 
-# By default, ^S freezes terminal output and ^Q resumes it. 
+# By default, ^S freezes terminal output and ^Q resumes it.
 unsetopt FLOW_CONTROL
 stty -ixon -ixoff 2>/dev/null # really, no flow control.
 

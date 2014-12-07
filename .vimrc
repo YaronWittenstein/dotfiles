@@ -255,6 +255,7 @@ nnoremap <leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 
 nnoremap <C-c> :bnext<CR>
 nnoremap <C-b> :bprev<CR>
+nnoremap <C-q> :bd<CR>
 
 " Better comand-line editing
 cnoremap <C-f> <right>
