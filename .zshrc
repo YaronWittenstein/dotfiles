@@ -28,6 +28,9 @@ alias rc='clear && rails console'
 alias j='clear && jobs -l'
 alias p='clear && pry '
 alias ps='clear && ps aux'
+alias psg='ps aux | grep'
+alias psgu='ps aux | grep unicorn'
+alias psgn='ps aux | grep nginx'
 alias z='clear && zeus start'
 
 alias tlf='tail -f'
@@ -51,7 +54,8 @@ alias spotpixeldemo='/Users/yaronwittenstein/spot.im/spotim-pixel-influxdb'
 alias sso-examples='/Users/yaronwittenstein/spot.im/sso-examples'
 alias influxible='/Users/yaronwittenstein/spot.im/influxible'
 alias spotalytics='/Users/yaronwittenstein/spot.im/spotalytics'
-alias spotim-devops-utils='/Users/yaronwittenstein/spot.im/spotim-devops-utils'
+alias devops_utils='/Users/yaronwittenstein/spot.im/spotim_devops_utils'
+alias spotim_devops_utils='/Users/yaronwittenstein/spot.im/spotim_devops_utils'
 
 alias dev='spotserver; tmux a -t dev'
 
@@ -59,9 +63,14 @@ alias desktop='/Users/yaronwittenstein/Desktop'
 alias rubytapas='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/rubytapas'
 alias railscasts='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/railscasts'
 
+# sudo
+alias ss='sudo'
+alias s='sudo'
+
 # gem
 alias gemp='fury push *.gem'
 alias gemb='gem build *.gemspec'
+alias gemu='gem uninstall'
 alias  fp='rm *.gem && gem build *.gemspec && fury push *.gem'
 
 alias gi='gem install '
@@ -69,6 +78,7 @@ alias gu='gem uninstall '
 alias gl='gem list'
 
 # git aliases
+alias g='git'
 alias ga='git add'
 alias gaa='git add -A'
 alias gc='git commit -m'
@@ -104,8 +114,6 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C
 alias tls='tmux ls'
 
 # ssh
-alias ss='ssh'
-alias s='ssh'
 alias sconfig='vim ~/.ssh/config'
 alias sshconfig='vim ~/.ssh/config'
 alias hosts='sudo vim /etc/hosts'

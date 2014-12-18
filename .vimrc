@@ -31,6 +31,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'haya14busa/incsearch.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI Plugins
