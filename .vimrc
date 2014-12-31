@@ -258,6 +258,8 @@ nnoremap <C-c> :bnext<CR>
 nnoremap <C-b> :bprev<CR>
 nnoremap <C-q> :bd<CR>
 
+nnoremap <leader>rr :topleft :split config/routes.rb<cr>
+
 " Better comand-line editing
 cnoremap <C-f> <right>
 cnoremap <C-b> <left>
