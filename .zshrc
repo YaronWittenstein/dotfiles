@@ -76,8 +76,9 @@ alias gemu='gem uninstall'
 alias  fp='rm *.gem && gem build *.gemspec && fury push *.gem'
 
 alias gi='gem install '
-alias gu='gem uninstall '
 alias gl='gem list'
+alias gu='gem uninstall '
+alias guall='for i in `gem list --no-versions`; do gem uninstall -aIx $i; done'
 
 # git aliases
 alias g='git'
@@ -111,7 +112,6 @@ alias gmd='git merge develop'
 alias grhh='git reset HEAD --hard'
 alias grh='git reset HEAD --hard'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias guall='for i in `gem list --no-versions`; do gem uninstall -aIx $i; done'
 
 # tmux
 alias tls='tmux ls'
