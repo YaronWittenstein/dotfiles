@@ -57,6 +57,8 @@ alias spotalytics='/Users/yaronwittenstein/spot.im/spotalytics'
 alias devops_utils='/Users/yaronwittenstein/spot.im/spotim_devops_utils'
 alias spotim_devops_utils='/Users/yaronwittenstein/spot.im/spotim_devops_utils'
 
+alias 30-days-of-elixir='/Users/yaronwittenstein/elixir-demos/30-days-of-elixir'
+
 alias dev='spotserver; tmux a -t dev'
 
 alias desktop='/Users/yaronwittenstein/Desktop'
@@ -109,6 +111,7 @@ alias gmd='git merge develop'
 alias grhh='git reset HEAD --hard'
 alias grh='git reset HEAD --hard'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias guall='for i in `gem list --no-versions`; do gem uninstall -aIx $i; done'
 
 # tmux
 alias tls='tmux ls'
