@@ -27,11 +27,15 @@ alias r='clear && rails s -p 5000'
 alias rc='clear && rails console'
 alias j='clear && jobs -l'
 alias p='clear && pry '
+alias e='elixir '
 alias ps='clear && ps aux'
 alias psg='ps aux | grep'
 alias psgu='ps aux | grep unicorn'
 alias psgn='ps aux | grep nginx'
-alias z='clear && zeus start'
+
+# zeus
+alias zs='clear && zeus start'
+alias zc='clear && zeus console'
 
 alias tlf='tail -f'
 
@@ -56,6 +60,7 @@ alias influxible='/Users/yaronwittenstein/spot.im/influxible'
 alias spotalytics='/Users/yaronwittenstein/spot.im/spotalytics'
 alias devops_utils='/Users/yaronwittenstein/spot.im/spotim_devops_utils'
 alias spotim_devops_utils='/Users/yaronwittenstein/spot.im/spotim_devops_utils'
+alias spotly='/Users/yaronwittenstein/spot.im/spotly'
 
 alias 30-days-of-elixir='/Users/yaronwittenstein/elixir-demos/30-days-of-elixir'
 

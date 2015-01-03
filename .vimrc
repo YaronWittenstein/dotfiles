@@ -372,6 +372,7 @@ function! RunTests(filename)
     if expand("%") != ""
       :w
     end
+
     if match(a:filename, '\.feature$') != -1
         exec ":!script/features " . a:filename
     else
@@ -393,7 +394,7 @@ function! RunTests(filename)
             exec ":!bundle exec " . t:run_test_command . " rspec --color " . a:filename
         " Fall back to a normal blocking test run
         else
-            exec ":!zeus rspec --color " . a:filename
+            exec ":!bundle exec " . t:run_test_command . " rspec --color " . a:filename
         end
     end
 endfunction
