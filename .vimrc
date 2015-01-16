@@ -23,6 +23,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'    " navigate up a directory with '-' in netrw, among other things
+Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/Command-T'
 Plugin 'airblade/vim-gitgutter'
@@ -158,6 +159,7 @@ let g:airline#extensions#tabline#enabled = 1 " enable vim-airline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Emacs-like beginning and end of line.
 inoremap <c-e> <c-o>$
 inoremap <c-a> <c-o>^
@@ -224,7 +226,25 @@ nnoremap <leader>ra :%s/
 " execute the current line
 nnoremap <leader>x :exec getline(".")<cr>
 
+" git blame
 vnoremap <leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+
+" git commit and push WIP
+nnoremap <leader>gg :!git add . && git commit -m 'WIP' && git push<cr>
+
+" By Endel Dreyer
+" Write COMMIT_EDITMSG and push to current branch
+function! PushToCurrentBranch()
+  exe ":Gwrite"
+  let branch = fugitive#statusline()
+  let branch = substitute(branch, '\c\v\[?GIT\(([a-z0-9\-_\./:]+)\)\]?',
+  $BRANCH.' \1', 'g')
+  exe ":Git push origin" . branch
+endfunction
+
+ " mapping to write commit and push to current branch
+ nnoremap gwp :call PushToCurrentBranch()<CR>"
+
 
 " Move visual block up or down easily.
 vnoremap J :m '>+1<CR>gv=gv

@@ -49,18 +49,7 @@ alias code='/Users/yaronwittenstein/Dropbox/work/code/'
 
 # spot.im
 alias spot='/Users/yaronwittenstein/spot.im/'
-alias spotserver='/Users/yaronwittenstein/spot.im/server_v3'
-alias spotchef='/Users/yaronwittenstein/spot.im/chef'
-alias hotspot='/Users/yaronwittenstein/spot.im/hotspot'
-alias spotlandingpage='/Users/yaronwittenstein/spot.im/landing-page'
-alias spotfrontend='/Users/yaronwittenstein/spot.im/frontend/'
-alias spotpixeldemo='/Users/yaronwittenstein/spot.im/spotim-pixel-influxdb'
-alias sso-examples='/Users/yaronwittenstein/spot.im/sso-examples'
-alias influxible='/Users/yaronwittenstein/spot.im/influxible'
-alias spotalytics='/Users/yaronwittenstein/spot.im/spotalytics'
-alias devops_utils='/Users/yaronwittenstein/spot.im/spotim_devops_utils'
-alias spotim_devops_utils='/Users/yaronwittenstein/spot.im/spotim_devops_utils'
-alias spotly='/Users/yaronwittenstein/spot.im/spotly'
+alias spotim='/Users/yaronwittenstein/spot.im/'
 
 alias 30-days-of-elixir='/Users/yaronwittenstein/elixir-demos/30-days-of-elixir'
 
