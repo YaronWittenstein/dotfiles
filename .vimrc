@@ -232,19 +232,8 @@ vnoremap <leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=lin
 " git commit and push WIP
 nnoremap <leader>gg :!git add . && git commit -m 'WIP' && git push<cr>
 
-" By Endel Dreyer
-" Write COMMIT_EDITMSG and push to current branch
-function! PushToCurrentBranch()
-  exe ":Gwrite"
-  let branch = fugitive#statusline()
-  let branch = substitute(branch, '\c\v\[?GIT\(([a-z0-9\-_\./:]+)\)\]?',
-  $BRANCH.' \1', 'g')
-  exe ":Git push origin" . branch
-endfunction
-
- " mapping to write commit and push to current branch
- nnoremap gwp :call PushToCurrentBranch()<CR>"
-
+nnoremap <leader>gs :Gstauts<cr>
+nnoremap <leader>gc :Gcommit<cr>
 
 " Move visual block up or down easily.
 vnoremap J :m '>+1<CR>gv=gv

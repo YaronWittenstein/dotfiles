@@ -23,7 +23,7 @@ alias grep='grep --color'
 alias t="tree -a -C -I '.git|.DS_Store' | less"
 
 alias v='vim'
-alias r='clear && rails s -p 5000'
+alias rs='clear && rails s -p 5000'
 alias rc='clear && rails console'
 alias j='clear && jobs -l'
 alias p='clear && pry '
@@ -52,8 +52,6 @@ alias spot='/Users/yaronwittenstein/spot.im/'
 alias spotim='/Users/yaronwittenstein/spot.im/'
 
 alias 30-days-of-elixir='/Users/yaronwittenstein/elixir-demos/30-days-of-elixir'
-
-alias dev='spotserver; tmux a -t dev'
 
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias rubytapas='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/rubytapas'
@@ -108,7 +106,9 @@ alias grh='git reset HEAD --hard'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 # tmux
+alias tmux="TERM=screen-256color-bce tmux"
 alias tls='tmux ls'
+alias tmuxconf='vim ~/.tmux.conf'
 
 # ssh
 alias sconfig='vim ~/.ssh/config'
@@ -116,10 +116,9 @@ alias sshconfig='vim ~/.ssh/config'
 alias hosts='sudo vim /etc/hosts'
 alias known_hosts='vim ~/.ssh/known_hosts'
 
-# dotfiles
+# vimrc, zshrc
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
-alias tmuxconf='vim ~/.tmux.conf'
 
 # chef
 # cookbooks
@@ -162,9 +161,9 @@ plugins=(dir-circle dirhistory
         ruby bundler rake rspec rails zeus gem rvm pow
         npm node coffee brew
         redis-cl
-        docker knife cap vagran
+        docker knife cap vagrant
         #vi-mode
-        tmux tmuxinator sublime
+        sublime
         osx sudo git zsh-syntax-highlighting last-working-dir
         encode64 jsontools)
 
