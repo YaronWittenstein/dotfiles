@@ -33,38 +33,19 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'haya14busa/incsearch.vim'
+Plugin 'dietsche/vim-lastplace'
+Plugin 'itchyny/lightline.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plugin 'bling/vim-airline'
-  set laststatus=2  " Always display the status line
-  " let g:airline_theme='luna'
-  let g:airline_powerline_fonts=1
-  let g:airline_enable_branch=1
-  let g:airline_enable_syntastic=1
-  let g:airline_powerline_fonts = 1
-  let g:airline_left_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_linecolumn_prefix = '␊ '
-  let g:airline_linecolumn_prefix = '␤ '
-  let g:airline_linecolumn_prefix = '¶ '
-  let g:airline_branch_prefix = '⎇ '
-  let g:airline_paste_symbol = 'ρ'
-  let g:airline_paste_symbol = 'Þ'
-  let g:airline_paste_symbol = '∥'
-  let g:airline#extensions#tabline#enabled = 0
-  " let g:airline_mode_map = {
-  "       \ 'n': 'N',
-  "       \ 'i': 'I',
-  "       \ 'R': 'REPLACE',
-  "       \ 'v': 'VISUAL',
-  "       \ 'V': 'V-LINE',
-  "       \ 'c': 'CMD   ',
-  "       \ '': 'V-BLCK',
-  "       \ }
+
+set laststatus=2  " Always display the status line
+let g:airline#extensions#tabline#enabled = 1
 
 Plugin 'roman/golden-ratio'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End UI Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -173,6 +154,14 @@ inoremap <Leader>hms    <C-R>=strftime("%T")<CR>
 
 " Clear the search buffer when hitting return
 nnoremap <CR> :nohl<cr>
+
+cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
+
+" disable encryption with :X in vim
+cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
+
+" treat :W as :w
+cnoremap <expr> W (getcmdtype() is# ':' && empty(getcmdline())) ? 'w' : 'W'
 
 " Note that remapping C-s requires flow control to be disabled
 " (e.g. in .bashrc or .zshrc)
@@ -559,3 +548,5 @@ au BufWrite * silent call DeleteTrailingWS()
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+
+let g:lastplace_ignore = "gitcommit,svn"

@@ -38,21 +38,18 @@ alias zs='clear && zeus start'
 alias zc='clear && zeus console'
 
 alias tlf='tail -f'
-
 alias reindex='ctags -R .'
-
-alias yaron='/Users/yaronwittenstein/'
-alias dropbox='/Users/yaronwittenstein/Dropbox/'
-
-alias work='/Users/yaronwittenstein/Dropbox/work/'
-alias code='/Users/yaronwittenstein/Dropbox/work/code/'
 
 # spot.im
 alias spot='/Users/yaronwittenstein/spot.im/'
 alias spotim='/Users/yaronwittenstein/spot.im/'
 
+# personal
+alias yaron='/Users/yaronwittenstein/'
+alias dropbox='/Users/yaronwittenstein/Dropbox/'
+alias work='/Users/yaronwittenstein/Dropbox/work/'
+alias code='/Users/yaronwittenstein/Dropbox/work/code/'
 alias 30-days-of-elixir='/Users/yaronwittenstein/elixir-demos/30-days-of-elixir'
-
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias rubytapas='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/rubytapas'
 alias railscasts='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/railscasts'
@@ -126,7 +123,7 @@ alias kcc='knife cookbook create '
 alias kcu='knife cookbook upload '
 alias kcd='knife cookbook delete '
 alias kcl='knife cookbook list'
-#roles
+# roles
 alias krl='knife role list'
 alias krc='knife role create '
 
