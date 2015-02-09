@@ -140,6 +140,8 @@ let g:airline#extensions#tabline#enabled = 1 " enable vim-airline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle between Normal mode to Control Mode
+nnoremap <Esc> :
 
 " Emacs-like beginning and end of line.
 inoremap <c-e> <c-o>$
