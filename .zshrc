@@ -144,7 +144,19 @@ export LANG=en_US.UTF-8
 # Use C-x C-e to edit the current command line
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '\C-z' edit-command-line
+# bindkey '\C-z' edit-command-line
+
+# the first Ctrl+z will suspend the currently foregrounded program
+# the second Ctrl+z will foreground the most recently suspended program
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0  ]]; then
+    zle redisplay
+  else
+    zle push-input
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '\C-z' fancy-ctrl-z
 
 #By deafult, zsh considers many characters part of a word (e.g., _ and -).
 # Narrow that down to allow easier skipping through words via M-f and M-b.

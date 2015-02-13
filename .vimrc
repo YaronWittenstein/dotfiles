@@ -141,7 +141,10 @@ let g:airline#extensions#tabline#enabled = 1 " enable vim-airline
 " MISC KEY MAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle between Normal mode to Control Mode
-nnoremap <Esc> :
+" nnoremap <Esc> :
+
+" Del in Insert Mode
+inoremap <C-h> <Left><Del>
 
 " Emacs-like beginning and end of line.
 inoremap <c-e> <c-o>$
@@ -223,10 +226,10 @@ vnoremap <leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=lin
 " git commit and push WIP
 nnoremap <leader>gg :!git add . && git commit -m 'WIP' && git push<cr>
 
-nnoremap <leader>gs :Gstauts<cr>
+nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
 
-" Move visual block up or down easily.
+" Move visual block up or down easily
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
@@ -257,8 +260,6 @@ nnoremap <leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 nnoremap <C-c> :bnext<CR>
 nnoremap <C-b> :bprev<CR>
 nnoremap <C-q> :bd<CR>
-
-nnoremap <leader>rr :topleft :split config/routes.rb<cr>
 
 " Better comand-line editing
 cnoremap <C-f> <right>
@@ -483,11 +484,6 @@ function! OpenQuickfix()
   endif
 endfunction
 
-" nnoremap <leader>q :call ToggleQuickfix()<cr>
-" nnoremap <leader>Q :cc<cr>
-" nnoremap <leader>j :cnext<cr>
-" nnoremap <leader>k :cprev<cr>
-
 function! SearchForCallSitesCursor()
   let searchTerm = expand("<cword>")
   call SearchForCallSites(searchTerm)
@@ -552,3 +548,5 @@ au BufWrite * silent call DeleteTrailingWS()
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 let g:lastplace_ignore = "gitcommit,svn"
+
+imap <c-l> :<space>'
