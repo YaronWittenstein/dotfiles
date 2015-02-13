@@ -194,7 +194,4 @@ unsetopt LIST_BEEP           # No list beeps
 
 # By default, ^S freezes terminal output and ^Q resumes it.
 unsetopt FLOW_CONTROL
-stty -ixon -ixoff 2>/dev/null # really, no flow control.
-
-# source $HOME/dotfiles/zsh/aliases
-source $HOME/dotfiles/zsh/functions
+stty -ixon -ixoff 2>/dev/null # really, no flow control
