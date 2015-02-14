@@ -26,6 +26,7 @@ Plugin 'tpope/vim-vinegar'    " navigate up a directory with '-' in netrw, among
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/Command-T'
+
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
@@ -124,6 +125,8 @@ command! W w
 command! WQ wq
 command! Wq wq
 command! Qall qall
+command! QA qall
+command! E e
 
 " Better? completion on command line
 set wildmenu
@@ -244,7 +247,7 @@ nnoremap <leader>l :CommandT<CR>
 nnoremap <leader>m :CommandTMRU<CR>
 nnoremap <leader>rf :CommandTFlush<CR>:CommandT<CR>
 
-let g:CommandTCancelMap=['<C-x>', '<C-c>']
+let g:CommandTCancelMap=['<Esc>', '<C-x>', '<C-c>']
 set wildignore+=*.o,*.obj,.git
 
 nnoremap <leader>vi :tabe $MYVIMRC<cr>
