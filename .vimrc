@@ -209,7 +209,7 @@ nnoremap j gj
 nnoremap Y y$
 
 " ex mode commands made easy
-nnoremap <space> :
+" nnoremap <space> :
 
 " Leader
 let mapleader=","
@@ -243,13 +243,16 @@ vnoremap > >gv
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+" Command-T
 nnoremap <leader>l :CommandT<CR>
 nnoremap <leader>m :CommandTMRU<CR>
 nnoremap <leader>rf :CommandTFlush<CR>:CommandT<CR>
+nnoremap <space> :CommandTMRU<CR>
 
 let g:CommandTCancelMap=['<Esc>', '<C-x>', '<C-c>']
-set wildignore+=*.o,*.obj,.git
+set wildignore+=*.o,*.obj,.git,parallel
 
+" vimrc
 nnoremap <leader>vi :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -307,8 +310,9 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <c-k> <c-w>k
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! OpenTestAlternate()
@@ -553,3 +557,4 @@ set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 let g:lastplace_ignore = "gitcommit,svn"
 
 imap <c-l> :<space>'
+nnoremap ; :
