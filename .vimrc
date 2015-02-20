@@ -103,8 +103,18 @@ set encoding=utf-8
 set tags=./tags;
 
 " Use Silver Searcher instead of grep
-set grepprg=ag
-let g:grep_cmd_opts = '--line-numbers --noheading'
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:grep_cmd_opts = '--line-numbers --noheading'
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
+nnoremap \ :Ag<space>
 
 " Fuzzy finder: ignore stuff that can't be opened, and generated files
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
@@ -249,6 +259,8 @@ nnoremap <leader>m :CommandTMRU<CR>
 nnoremap <leader>rf :CommandTFlush<CR>:CommandT<CR>
 nnoremap <space> :CommandTMRU<CR>
 
+let g:CommandTMaxHeight=50
+let g:CommandTMatchWindowAtTop=1
 let g:CommandTCancelMap=['<Esc>', '<C-x>', '<C-c>']
 set wildignore+=*.o,*.obj,.git,parallel
 
@@ -490,6 +502,11 @@ function! OpenQuickfix()
       cc
   endif
 endfunction
+
+nnoremap <leader>q :call ToggleQuickfix()<cr>
+nnoremap <leader>Q :cc<cr>
+nnoremap <leader>j :cnext<cr>
+nnoremap <leader>k :cprev<cr>
 
 function! SearchForCallSitesCursor()
   let searchTerm = expand("<cword>")
