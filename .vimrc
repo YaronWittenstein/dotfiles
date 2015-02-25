@@ -37,6 +37,8 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'dietsche/vim-lastplace'
 Plugin 'itchyny/lightline.vim'
 
+Plugin 'christoomey/vim-tmux-navigator'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,14 +107,16 @@ set tags=./tags;
 " Use Silver Searcher instead of grep
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
   let g:grep_cmd_opts = '--line-numbers --noheading'
 endif
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
 " bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 nnoremap \ :Ag<space>
 
@@ -130,6 +134,7 @@ set smarttab
 set foldmethod=manual
 set nofoldenable
 
+" Misspelling
 command! Q q " Bind :Q to :q
 command! W w
 command! WQ wq
@@ -137,6 +142,8 @@ command! Wq wq
 command! Qall qall
 command! QA qall
 command! E e
+cabbrev ew :wq
+cabbrev qw :wq
 
 " Better? completion on command line
 set wildmenu
@@ -200,11 +207,37 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+
+if exists('$TMUX')
+  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+    let previous_winnr = winnr()
+    silent! execute "wincmd " . a:wincmd
+    if previous_winnr == winnr()
+      call system("tmux select-pane -" . a:tmuxdir)
+      redraw!
+    endif
+  endfunction
+
+  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+
+  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
+endif
+
 " Move around splits with <c-hjkl>
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-l> <c-w>l
 
 " Insert a hash rocket with <c-l>
 inoremap <c-l> <space>=><space>
@@ -259,7 +292,7 @@ nnoremap <leader>m :CommandTMRU<CR>
 nnoremap <leader>rf :CommandTFlush<CR>:CommandT<CR>
 nnoremap <space> :CommandTMRU<CR>
 
-let g:CommandTMaxHeight=50
+let g:CommandTMaxHeight=20
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTCancelMap=['<Esc>', '<C-x>', '<C-c>']
 set wildignore+=*.o,*.obj,.git,parallel
@@ -321,8 +354,6 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
-
-nnoremap <c-k> <c-w>k
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
@@ -574,4 +605,15 @@ set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 let g:lastplace_ignore = "gitcommit,svn"
 
 imap <c-l> :<space>'
+
+" Enter command mode with one keystroke
 nnoremap ; :
+nnoremap : ;
+
+" Start an external command with a single bang
+nnoremap ! :!
+
+" Auto-save a file when you leave insert mode
+autocmd InsertLeave * if expand('%') != '' | update | endif
+
+inoremap jj <esc>

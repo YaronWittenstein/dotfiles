@@ -42,7 +42,11 @@ alias reindex='ctags -R .'
 
 # spot.im
 alias spot='/Users/yaronwittenstein/spot.im/'
-alias spotim='/Users/yaronwittenstein/spot.im/'
+alias dev='cd /Users/yaronwittenstein/spot.im && tmuxinator start spotim'
+alias devkill='tmux kill-session -t spotim'
+alias devk='tmux kill-session -t spotim'
+alias killdev='tmux kill-session -t spotim'
+alias kdev='tmux kill-session -t spotim'
 
 # personal
 alias yaron='/Users/yaronwittenstein/'
@@ -104,6 +108,7 @@ alias grh='git reset HEAD --hard'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 # tmux
+alias tmuxinator='TERM=xterm-256color tmuxinator'
 alias tmux="TERM=screen-256color-bce tmux"
 alias tls='tmux ls'
 alias tmuxconf='vim ~/.tmux.conf'
