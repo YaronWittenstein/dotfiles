@@ -1,3 +1,5 @@
+export rvm_recommended_ruby='ruby-2.2.1'
+
 #Path to your oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 
@@ -66,7 +68,7 @@ alias s='sudo'
 alias gemp='fury push *.gem'
 alias gemb='gem build *.gemspec'
 alias gemu='gem uninstall'
-alias  fp='rm *.gem && gem build *.gemspec && fury push *.gem'
+alias  fp='gem build *.gemspec && fury push *.gem'
 
 alias gi='sudo gem install –no-ri –no-rdoc'
 alias gemi='sudo gem install –no-ri –no-rdoc'
@@ -184,10 +186,9 @@ plugins=(dir-circle dirhistory
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:$HOME/.rvm/bin
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.0.0-p353@spot.im/bin:$PATH
+export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.2.1/bin:$PATH
 
 # docker
 export DOCKER_TLS_VERIFY=1

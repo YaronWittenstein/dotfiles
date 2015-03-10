@@ -271,6 +271,7 @@ vnoremap <leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=lin
 
 " git commit and push WIP
 nnoremap <leader>gg :!git add . && git commit -m 'WIP' && git push<cr>
+nnoremap <leader>ww :!git add . && git commit -m 'WIP'<cr>
 
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
@@ -615,5 +616,3 @@ nnoremap ! :!
 
 " Auto-save a file when you leave insert mode
 autocmd InsertLeave * if expand('%') != '' | update | endif
-
-inoremap jj <esc>
