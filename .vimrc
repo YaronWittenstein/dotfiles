@@ -26,6 +26,7 @@ Plugin 'tpope/vim-vinegar'    " navigate up a directory with '-' in netrw, among
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/Command-T'
+Plugin 'SirVer/ultisnips'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
@@ -35,7 +36,6 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'dietsche/vim-lastplace'
-Plugin 'itchyny/lightline.vim'
 
 Plugin 'christoomey/vim-tmux-navigator'
 
@@ -596,7 +596,6 @@ func! DeleteTrailingWS()
 endfunc
 au BufWrite * silent call DeleteTrailingWS()
 """"" End Normalization ================""
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE

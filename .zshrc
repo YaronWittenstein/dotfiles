@@ -11,7 +11,7 @@ alias be='bundle exec'
 
 alias ..='cd ..'
 alias ...='cd ../..'
-alias c='cd'
+alias c='clear'
 alias cd..='cd ..'
 alias cd.='cd ..'
 alias c..='cd..'
@@ -68,7 +68,7 @@ alias s='sudo'
 alias gemp='fury push *.gem'
 alias gemb='gem build *.gemspec'
 alias gemu='gem uninstall'
-alias  fp='gem build *.gemspec && fury push *.gem'
+alias  fp="(rm -f *.gem) && gem build *.gemspec && fury push *.gem"
 
 alias gi='sudo gem install –no-ri –no-rdoc'
 alias gemi='sudo gem install –no-ri –no-rdoc'
@@ -202,3 +202,7 @@ unsetopt LIST_BEEP           # No list beeps
 # By default, ^S freezes terminal output and ^Q resumes it.
 unsetopt FLOW_CONTROL
 stty -ixon -ixoff 2>/dev/null # really, no flow control
+
+# If a pattern for filename generation has no matches, delete the pattern from the argument list;
+# do not report an error unless all the patterns in a command have no matches
+setopt null_glob
