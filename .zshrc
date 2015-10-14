@@ -107,6 +107,7 @@ alias gmm='git merge master'
 alias gmd='git merge develop'
 alias grhh='git reset HEAD --hard'
 alias grh='git reset HEAD --hard'
+alias glg="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 # tmux
