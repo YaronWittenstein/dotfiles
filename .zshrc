@@ -22,7 +22,8 @@ alias ls='ls -alG'
 alias l='ls'
 alias ll='ls'
 alias grep='grep --color'
-alias t="tree -a -C -I '.git|.DS_Store' | less"
+alias t="touch"
+alias tr="tree -a -C -I '.git|.DS_Store' | less"
 
 alias v='vim'
 alias rs='clear && rails s -p 5000'
@@ -49,6 +50,7 @@ alias devkill='tmux kill-session -t spotim'
 alias devk='tmux kill-session -t spotim'
 alias killdev='tmux kill-session -t spotim'
 alias kdev='tmux kill-session -t spotim'
+alias debt='vim /Users/yaronwittenstein/Dropbox/work/spot.im/technical-debt.txt'
 
 # personal
 alias yaron='/Users/yaronwittenstein/'
@@ -58,7 +60,7 @@ alias code='/Users/yaronwittenstein/Dropbox/work/code/'
 alias 30-days-of-elixir='/Users/yaronwittenstein/elixir-demos/30-days-of-elixir'
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias rubytapas='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/rubytapas'
-alias railscasts='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/railscasts'
+
 
 # sudo
 alias ss='sudo'
@@ -68,7 +70,7 @@ alias s='sudo'
 alias gemp='fury push *.gem'
 alias gemb='gem build *.gemspec'
 alias gemu='gem uninstall'
-alias  fp="(rm -f *.gem) && gem build *.gemspec && fury push *.gem"
+alias  fp="(rm -f *.gem) && gem build *.gemspec && gem inabox *.gem"
 
 alias gi='sudo gem install –no-ri –no-rdoc'
 alias gemi='sudo gem install –no-ri –no-rdoc'
@@ -177,7 +179,7 @@ ZSH_THEME="aussiegeek"
 
 plugins=(dir-circle dirhistory
         ruby bundler rake rspec rails zeus gem rvm pow
-        npm node coffee brew
+        npm node brew
         redis-cl
         docker knife cap vagrant
         #vi-mode
@@ -207,3 +209,6 @@ stty -ixon -ixoff 2>/dev/null # really, no flow control
 # If a pattern for filename generation has no matches, delete the pattern from the argument list;
 # do not report an error unless all the patterns in a command have no matches
 setopt null_glob
+
+source ~/.profile
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

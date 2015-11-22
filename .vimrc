@@ -59,7 +59,10 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 
 " Colors
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'altercation/vim-colors-solarized'
+
 set t_Co=256 " 256 colors
+let g:solarized_termcolors=256
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -615,3 +618,9 @@ nnoremap ! :!
 
 " Auto-save a file when you leave insert mode
 autocmd InsertLeave * if expand('%') != '' | update | endif
+
+function! LightBackground()
+  syntax enable
+  set background=light
+  colorscheme solarized
+endfunction
