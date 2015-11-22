@@ -619,6 +619,12 @@ nnoremap ! :!
 " Auto-save a file when you leave insert mode
 autocmd InsertLeave * if expand('%') != '' | update | endif
 
+function! DarkBackground()
+  syntax enable
+  set background=dark
+  colorscheme default
+endfunction
+
 function! LightBackground()
   syntax enable
   set background=light
