@@ -630,3 +630,4 @@ function! LightBackground()
   set background=light
   colorscheme solarized
 endfunction
+

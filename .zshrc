@@ -36,6 +36,8 @@ alias psg='ps aux | grep'
 alias psgu='ps aux | grep unicorn'
 alias psgn='ps aux | grep nginx'
 
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+
 # zeus
 alias zs='clear && zeus start'
 alias zc='clear && zeus console'
@@ -61,13 +63,11 @@ alias 30-days-of-elixir='/Users/yaronwittenstein/elixir-demos/30-days-of-elixir'
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias rubytapas='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/rubytapas'
 
-
 # sudo
 alias ss='sudo'
 alias s='sudo'
 
 # gem
-alias gemp='fury push *.gem'
 alias gemb='gem build *.gemspec'
 alias gemu='gem uninstall'
 alias  fp="(rm -f *.gem) && gem build *.gemspec && gem inabox *.gem"
