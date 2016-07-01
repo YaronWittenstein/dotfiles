@@ -24,9 +24,12 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'    " navigate up a directory with '-' in netrw, among other things
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fireplace'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/Command-T'
 Plugin 'SirVer/ultisnips'
+
+Plugin 'lambdatoast/elm.vim'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'

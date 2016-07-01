@@ -30,13 +30,13 @@ alias rs='clear && rails s -p 5000'
 alias rc='clear && rails console'
 alias j='clear && jobs -l'
 alias p='clear && pry '
-alias e='elixir '
 alias ps='clear && ps aux'
 alias psg='ps aux | grep'
 alias psgu='ps aux | grep unicorn'
 alias psgn='ps aux | grep nginx'
 
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+alias e='emacs '
 
 # zeus
 alias zs='clear && zeus start'
