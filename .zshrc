@@ -1,4 +1,4 @@
-export rvm_recommended_ruby='ruby-2.2.1'
+export rvm_recommended_ruby='ruby-2.3'
 
 #Path to your oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
@@ -35,24 +35,21 @@ alias psg='ps aux | grep'
 alias psgu='ps aux | grep unicorn'
 alias psgn='ps aux | grep nginx'
 
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+# alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 alias e='emacs '
-
-# zeus
-alias zs='clear && zeus start'
-alias zc='clear && zeus console'
 
 alias tlf='tail -f'
 alias reindex='ctags -R .'
 
 # spot.im
 alias spot='/Users/yaronwittenstein/spot.im/'
+alias learn='/Users/yaronwittenstein/learn/'
+alias code='/Users/yaronwittenstein/learn/'
 alias dev='cd /Users/yaronwittenstein/spot.im && tmuxinator start spotim'
 alias devkill='tmux kill-session -t spotim'
 alias devk='tmux kill-session -t spotim'
 alias killdev='tmux kill-session -t spotim'
 alias kdev='tmux kill-session -t spotim'
-alias debt='vim /Users/yaronwittenstein/Dropbox/work/spot.im/technical-debt.txt'
 
 # personal
 alias yaron='/Users/yaronwittenstein/'
@@ -61,7 +58,6 @@ alias work='/Users/yaronwittenstein/Dropbox/work/'
 alias code='/Users/yaronwittenstein/Dropbox/work/code/'
 alias 30-days-of-elixir='/Users/yaronwittenstein/elixir-demos/30-days-of-elixir'
 alias desktop='/Users/yaronwittenstein/Desktop'
-alias rubytapas='/Users/yaronwittenstein/Dropbox/work/code/demos/ruby/practice/rubytapas'
 
 # sudo
 alias ss='sudo'
@@ -128,16 +124,6 @@ alias known_hosts='vim ~/.ssh/known_hosts'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
 
-# chef
-# cookbooks
-alias kcc='knife cookbook create '
-alias kcu='knife cookbook upload '
-alias kcd='knife cookbook delete '
-alias kcl='knife cookbook list'
-# roles
-alias krl='knife role list'
-alias krc='knife role create '
-
 # docker
 alias dl='docker ps -l -q'
 
@@ -178,25 +164,18 @@ export EDITOR=vim
 ZSH_THEME="aussiegeek"
 
 plugins=(dir-circle dirhistory
-        ruby bundler rake rspec rails zeus gem rvm pow
-        npm node brew
+        ruby bundler gem rvm
+        brew
+        osx
+        git gitfast
         redis-cl
-        docker knife cap vagrant
-        #vi-mode
-        sublime
-        osx sudo git zsh-syntax-highlighting last-working-dir
-        encode64 jsontools)
+        sudo zsh-syntax-highlighting last-working-dir)
 
 source $ZSH/oh-my-zsh.sh
 
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.2.1/bin:$PATH
-
-# docker
-export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/yaronwittenstein/.boot2docker/certs/boot2docker-vm
 
 unsetopt BEEP                # No beeps on error
 unsetopt HIST_BEEP           # No history beeps
@@ -212,3 +191,13 @@ setopt null_glob
 
 source ~/.profile
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/yaronwittenstein/Desktop/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/yaronwittenstein/Desktop/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/yaronwittenstein/Desktop/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/yaronwittenstein/Desktop/google-cloud-sdk/completion.zsh.inc'
+fi

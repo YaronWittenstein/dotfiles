@@ -3,6 +3,7 @@
   email = yaron.wittenstein@gmail.com
 [core]
   editor = vim
+	excludesfile = /Users/yaronwittenstein/.gitignore
 [github]
   user = YaronWittenstein
 [color]

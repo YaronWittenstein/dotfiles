@@ -4,3 +4,4 @@ tags
 log/
 *.swp
 *.orig
+.DS_Store

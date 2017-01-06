@@ -302,7 +302,7 @@ nnoremap <space> :CommandTMRU<CR>
 let g:CommandTMaxHeight=20
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTCancelMap=['<Esc>', '<C-x>', '<C-c>']
-set wildignore+=*.o,*.obj,.git,parallel
+set wildignore+=*.o,*.obj,.git,*.beam,parallel,deps,_build
 
 " vimrc
 nnoremap <leader>vi :tabe $MYVIMRC<cr>
@@ -633,4 +633,3 @@ function! LightBackground()
   set background=light
   colorscheme solarized
 endfunction
-
