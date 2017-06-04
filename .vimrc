@@ -36,6 +36,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'rust-lang/rust.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'dietsche/vim-lastplace'
@@ -302,7 +303,7 @@ nnoremap <space> :CommandTMRU<CR>
 let g:CommandTMaxHeight=20
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTCancelMap=['<Esc>', '<C-x>', '<C-c>']
-set wildignore+=*.o,*.obj,.git,*.beam,parallel,deps,_build
+set wildignore+=*.o,*.obj,.git,*.beam,parallel,deps,_build,cover
 
 " vimrc
 nnoremap <leader>vi :tabe $MYVIMRC<cr>

@@ -60,8 +60,7 @@ alias 30-days-of-elixir='/Users/yaronwittenstein/elixir-demos/30-days-of-elixir'
 alias desktop='/Users/yaronwittenstein/Desktop'
 
 # sudo
-alias ss='sudo'
-alias s='sudo'
+# alias s='sudo'
 
 # gem
 alias gemb='gem build *.gemspec'
@@ -77,7 +76,6 @@ alias guall='for i in `gem list --no-versions`; do gem uninstall -aIx $i; done'
 # git aliases
 alias g='git'
 alias ga='git add'
-alias gaa='git add -A'
 alias gc='git commit -m'
 alias gamend='git commit --amend'
 alias gac='gaa; gc'
@@ -90,7 +88,6 @@ alias gpf='git push origin HEAD -f'
 alias gpom='git push origin master'
 alias gl='git pull origin'
 alias gb='git branch'
-alias gb-dm='git branch -D master'
 alias gba='git branch -a'
 alias gbr='git branch -r'
 alias gs='git status -sb'
@@ -104,9 +101,13 @@ alias gm='git merge'
 alias gmm='git merge master'
 alias gmd='git merge develop'
 alias grhh='git reset HEAD --hard'
-alias grh='git reset HEAD --hard'
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+
+# elixir
+alias mt='mix test'
+alias mdeps='mix deps.get; mix deps.compile'
+alias mr='mix run --no-halt'
 
 # tmux
 alias tmuxinator='TERM=xterm-256color tmuxinator'
@@ -173,9 +174,13 @@ plugins=(dir-circle dirhistory
 
 source $ZSH/oh-my-zsh.sh
 
+# go
+export GOPATH=$HOME/go
+
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.2.1/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 
 unsetopt BEEP                # No beeps on error
 unsetopt HIST_BEEP           # No history beeps
@@ -201,3 +206,6 @@ fi
 if [ -f /Users/yaronwittenstein/Desktop/google-cloud-sdk/completion.zsh.inc ]; then
   source '/Users/yaronwittenstein/Desktop/google-cloud-sdk/completion.zsh.inc'
 fi
+
+# elasticsearch
+elasticsearch='elasticsearch -Des.insecure.allow.root=true'
