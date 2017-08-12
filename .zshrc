@@ -207,5 +207,7 @@ if [ -f /Users/yaronwittenstein/Desktop/google-cloud-sdk/completion.zsh.inc ]; t
   source '/Users/yaronwittenstein/Desktop/google-cloud-sdk/completion.zsh.inc'
 fi
 
+alias ls='exa --long'
+
 # elasticsearch
 elasticsearch='elasticsearch -Des.insecure.allow.root=true'
