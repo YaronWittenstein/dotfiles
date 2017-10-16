@@ -36,7 +36,7 @@ alias psgu='ps aux | grep unicorn'
 alias psgn='ps aux | grep nginx'
 
 # alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-alias e='emacs '
+alias e='emacs --no-splash'
 
 alias tlf='tail -f'
 alias reindex='ctags -R .'
@@ -173,6 +173,9 @@ plugins=(dir-circle dirhistory
         sudo zsh-syntax-highlighting last-working-dir)
 
 source $ZSH/oh-my-zsh.sh
+
+# elixir
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # go
 export GOPATH=$HOME/go
