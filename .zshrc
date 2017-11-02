@@ -109,6 +109,11 @@ alias mt='mix test'
 alias mdeps='mix deps.get; mix deps.compile'
 alias mr='mix run --no-halt'
 
+# rust
+alias cb='cargo build'
+alias cr='cargo run'
+alias ct='cargo test'
+
 # tmux
 alias tmuxinator='TERM=xterm-256color tmuxinator'
 alias tmux="TERM=screen-256color-bce tmux"
@@ -184,6 +189,7 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.2.1/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
 unsetopt BEEP                # No beeps on error
 unsetopt HIST_BEEP           # No history beeps
