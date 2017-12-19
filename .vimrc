@@ -1,4 +1,3 @@
-" possible, as it has side effects.
 set nocompatible
 filetype off  " required
 
@@ -19,29 +18,30 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'    " navigate up a directory with '-' in netrw, among other things
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-fireplace'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'wincent/Command-T'
 Plugin 'SirVer/ultisnips'
-
-Plugin 'lambdatoast/elm.vim'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'ust-lang/rust.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'dietsche/vim-lastplace'
 
-Plugin 'christoomey/vim-tmux-navigator'
+" Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'lambdatoast/elm.vim'
+Plugin 'rust-lang/rust.vim'
+
+Plugin 'kien/ctrlp.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI Plugins
@@ -295,14 +295,20 @@ vnoremap > >gv
 nnoremap <leader><leader> <c-^>
 
 " Command-T
-nnoremap <leader>l :CommandT<CR>
-nnoremap <leader>m :CommandTMRU<CR>
-nnoremap <leader>rf :CommandTFlush<CR>:CommandT<CR>
-nnoremap <space> :CommandTMRU<CR>
+" let g:CommandTCancelMap=['<Esc>', '<C-x>', '<C-c>']
 
-let g:CommandTMaxHeight=20
-let g:CommandTMatchWindowAtTop=1
-let g:CommandTCancelMap=['<Esc>', '<C-x>', '<C-c>']
+" CtrlP
+nnoremap <leader>l :CtrlP<CR>
+nnoremap <leader>m :CtrlPMRU<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <space>   :CtrlPMRU<CR>
+
+" Set no max file limit
+let g:ctrlp_max_files = 0
+
+" Search from current directory instead of project root
+let g:ctrlp_working_path_mode = 0
+
 set wildignore+=*.o,*.obj,.git,*.beam,parallel,deps,_build,cover
 
 " vimrc
