@@ -207,7 +207,7 @@ elasticsearch='elasticsearch -Des.insecure.allow.root=true'
 
 # fzf (fuzzy finder)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS='--color 16,info:6,hl:13,hl+:13'
+export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_COMPLETION_TRIGGER=';'
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
