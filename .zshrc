@@ -26,6 +26,7 @@ alias t="touch"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
 
 alias v='vim'
+alias w='vim **<TAB>' # triggers fzf
 alias rs='clear && rails s -p 5000'
 alias rc='clear && rails console'
 alias j='clear && jobs -l'
@@ -56,7 +57,6 @@ alias yaron='/Users/yaronwittenstein/'
 alias dropbox='/Users/yaronwittenstein/Dropbox/'
 alias work='/Users/yaronwittenstein/Dropbox/work/'
 alias code='/Users/yaronwittenstein/Dropbox/work/code/'
-alias 30-days-of-elixir='/Users/yaronwittenstein/elixir-demos/30-days-of-elixir'
 alias desktop='/Users/yaronwittenstein/Desktop'
 
 # sudo
@@ -175,21 +175,15 @@ plugins=(dir-circle dirhistory
         osx
         git gitfast
         redis-cl
-        sudo zsh-syntax-highlighting last-working-dir)
+        zsh-syntax-highlighting last-working-dir)
 
 source $ZSH/oh-my-zsh.sh
 
-# elixir
+# elixir/erlang history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # go
 export GOPATH=$HOME/go
-
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.2.1/bin:$PATH
-export PATH=$GOPATH/bin:$PATH
-export PATH="$HOME/.cargo/bin:$PATH"
 
 unsetopt BEEP                # No beeps on error
 unsetopt HIST_BEEP           # No history beeps
@@ -206,17 +200,34 @@ setopt null_glob
 source ~/.profile
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/yaronwittenstein/Desktop/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/yaronwittenstein/Desktop/google-cloud-sdk/path.zsh.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /Users/yaronwittenstein/Desktop/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/Users/yaronwittenstein/Desktop/google-cloud-sdk/completion.zsh.inc'
-fi
-
 alias ls='exa --long'
 
 # elasticsearch
 elasticsearch='elasticsearch -Des.insecure.allow.root=true'
+
+# fzf (fuzzy finder)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--color 16,info:6,hl:13,hl+:13'
+export FZF_COMPLETION_TRIGGER=';'
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+# PATH
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.2.1/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"

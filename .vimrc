@@ -11,19 +11,24 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" My bundles
-Plugin 'ervandew/supertab'
-Plugin 'skwp/greplace.vim'
-Plugin 'tomtom/tcomment_vim'
+" tpope plugins
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'    " navigate up a directory with '-' in netrw, among other things
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-markdown'
+
+Plugin 'ervandew/supertab'
+Plugin 'skwp/greplace.vim'
+Plugin 'tomtom/tcomment_vim'
 Plugin 'SirVer/ultisnips'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'junegunn/vim-easy-align'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
@@ -32,6 +37,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'dietsche/vim-lastplace'
+Plugin 'machakann/vim-swap'
+Plugin 'kien/ctrlp.vim'
 
 " Plugin 'Valloric/YouCompleteMe'
 
@@ -40,8 +47,6 @@ Plugin 'tpope/vim-rails'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'rust-lang/rust.vim'
-
-Plugin 'kien/ctrlp.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI Plugins
@@ -112,8 +117,14 @@ set encoding=utf-8
 set tags=./tags;
 
 " Use Silver Searcher instead of grep
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+" if executable('ag')
+"   set grepprg=ag\ --nogroup\ --nocolor
+"   set grepformat=%f:%l:%c:%m,%f:%l:%m
+"   let g:grep_cmd_opts = '--line-numbers --noheading'
+" endif
+
+if executable('rg')
+  set grepprg=rg\ --vimgrep
   set grepformat=%f:%l:%c:%m,%f:%l:%m
   let g:grep_cmd_opts = '--line-numbers --noheading'
 endif
@@ -214,7 +225,6 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
     let previous_winnr = winnr()
@@ -292,13 +302,10 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Switch between the last two files
-nnoremap <leader><leader> <c-^>
-
-" Command-T
-" let g:CommandTCancelMap=['<Esc>', '<C-x>', '<C-c>']
+" nnoremap <leader><leader> <c-^>
 
 " CtrlP
-nnoremap <leader>l :CtrlP<CR>
+" nnoremap <leader>l :CtrlP<CR> reserved for Fzy
 nnoremap <leader>m :CtrlPMRU<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <space>   :CtrlPMRU<CR>
@@ -320,7 +327,7 @@ nnoremap J mzJ`z`
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
-nnoremap <leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+nnoremap <leader><leader> :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 
 nnoremap <C-c> :bnext<CR>
 nnoremap <C-b> :bprev<CR>
@@ -629,6 +636,10 @@ nnoremap ! :!
 " Auto-save a file when you leave insert mode
 autocmd InsertLeave * if expand('%') != '' | update | endif
 
+" Markdown
+"# vim-markdown
+let g:markdown_fenced_languages = ['html', 'ruby', 'elixir']
+
 function! DarkBackground()
   syntax enable
   set background=dark
@@ -640,3 +651,26 @@ function! LightBackground()
   set background=light
   colorscheme solarized
 endfunction
+
+" Fzy
+" https://github.com/jhawthorn/fzy
+function! FzyCommand(choice_command, vim_command)
+  try
+    let output = system(a:choice_command . " | fzy ")
+  catch /Vim:Interrupt/
+    " Swallow errors from ^C, allow redraw! below
+  endtry
+  redraw!
+  if v:shell_error == 0 && !empty(output)
+    exec a:vim_command . ' ' . output
+  endif
+endfunction
+
+nnoremap <leader>l :call FzyCommand("ag . --silent -l -g ''", ":e")<cr>
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
