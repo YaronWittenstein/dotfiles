@@ -175,6 +175,7 @@ plugins=(dir-circle dirhistory
         osx
         git gitfast
         redis-cl
+        vi-mode
         zsh-syntax-highlighting last-working-dir)
 
 source $ZSH/oh-my-zsh.sh
