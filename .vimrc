@@ -5,6 +5,8 @@ filetype off  " required
 set rtp+=~/dotfiles/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+set rtp+=/usr/local/opt/fzf
+
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -29,6 +31,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'junegunn/gv.vim'
+Plugin 'junegunn/fzf.vim'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
@@ -287,8 +291,8 @@ nnoremap <leader>x :exec getline(".")<cr>
 vnoremap <leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 " git commit and push WIP
-nnoremap <leader>gg :!git add . && git commit -m 'WIP' && git push<cr>
-nnoremap <leader>ww :!git add . && git commit -m 'WIP'<cr>
+" nnoremap <leader>gg :!git add . && git commit -m 'WIP' && git push<cr>
+" nnoremap <leader>ww :!git add . && git commit -m 'WIP'<cr>
 
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
@@ -305,10 +309,7 @@ vnoremap > >gv
 " nnoremap <leader><leader> <c-^>
 
 " CtrlP
-" nnoremap <leader>l :CtrlP<CR> reserved for Fzy
-nnoremap <leader>m :CtrlPMRU<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <space>   :CtrlPMRU<CR>
+nnoremap <space> :CtrlPMRU<CR>
 
 " Set no max file limit
 let g:ctrlp_max_files = 0
@@ -652,21 +653,9 @@ function! LightBackground()
   colorscheme solarized
 endfunction
 
-" Fzy
-" https://github.com/jhawthorn/fzy
-function! FzyCommand(choice_command, vim_command)
-  try
-    let output = system(a:choice_command . " | fzy ")
-  catch /Vim:Interrupt/
-    " Swallow errors from ^C, allow redraw! below
-  endtry
-  redraw!
-  if v:shell_error == 0 && !empty(output)
-    exec a:vim_command . ' ' . output
-  endif
-endfunction
-
-nnoremap <leader>l :call FzyCommand("ag . --silent -l -g ''", ":e")<cr>
+" fzf.vim
+nnoremap <leader>l :Files<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -674,3 +663,6 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" gv.im (git commit browser)
+nnoremap <leader>gg :GV<CR>
