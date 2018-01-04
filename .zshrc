@@ -1,4 +1,4 @@
-export rvm_recommended_ruby='ruby-2.3'
+export rvm_recommended_ruby='ruby-2.3.1'
 
 #Path to your oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
@@ -24,6 +24,7 @@ alias ll='ls'
 alias grep='grep --color'
 alias t="touch"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
+alias top="htop"
 
 alias v='vim'
 alias w='vim **<TAB>' # triggers fzf
@@ -169,14 +170,29 @@ export EDITOR=vim
 
 ZSH_THEME="aussiegeek"
 
-plugins=(dir-circle dirhistory
-        ruby bundler gem rvm
+plugins=(dircircle
+        dirhistory
+        cp
+        cargo
+        go
+        ruby
+        lein
+        bundler
+        gem
+        rvm
+        mix
+        rust
         brew
         osx
-        git gitfast
+        gem
+        git
+        gitfast
+        git-remote-branch
         redis-cl
         vi-mode
-        zsh-syntax-highlighting last-working-dir)
+        last-working-dir
+        zsh-autosuggestions
+        zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
