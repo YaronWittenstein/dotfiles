@@ -5,3 +5,4 @@ log/
 *.swp
 *.orig
 .DS_Store
+bundle/
