@@ -24,7 +24,6 @@ alias ll='ls'
 alias grep='grep --color'
 alias t="touch"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
-alias top="htop"
 
 alias v='vim'
 alias w='vim **<TAB>' # triggers fzf
