@@ -244,6 +244,6 @@ _fzf_compgen_dir() {
 # PATH
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.2.1/bin:$PATH
+export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.3.1/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
