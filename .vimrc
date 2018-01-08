@@ -463,9 +463,8 @@ endfunction
 " Search for call sites for term (excluding its definition) and
 " load into the quickfix list.
 function! SearchForCallSites(term)
-  cexpr system('ag ' . shellescape(a:term) . '\| grep -v def')
+  cexpr system('ag ' . shellescape(a:term) . '\| grep -v def') 
 endfunction
-
 nnoremap <Leader>cs :call SearchForCallSitesCursor()<CR>
 
 " Index ctags from any project, including those outside Rails
@@ -483,7 +482,7 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-nnoremap <Leader>rn :call RenameFile()<cr>
+nnoremap <leader>rn :call RenameFile()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PROMOTE VARIABLE TO RSPEC LET
@@ -500,7 +499,6 @@ endfunction
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
-
 
 """"" Normalization ====================
 " Delete trailing white space on save
@@ -531,7 +529,6 @@ nnoremap ! :!
 " Auto-save a file when you leave insert mode
 autocmd InsertLeave * if expand('%') != '' | update | endif
 
-" Markdown
 "# vim-markdown
 let g:markdown_fenced_languages = ['html', 'ruby', 'elixir']
 
@@ -565,7 +562,7 @@ nnoremap <leader>gg :GV<CR>
 let test#strategy = {
   \ 'nearest': 'basic',
   \ 'file':    'basic',
-  \ 'suite':   'basic',
+  \ 'suite':   'basic'
 \}
 
 let g:test#preserve_screen       = 0
