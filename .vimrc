@@ -31,15 +31,17 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'junegunn/gv.vim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'janko-m/vim-test'
+Plugin 'w0rp/ale'
 
 Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'dietsche/vim-lastplace'
 Plugin 'machakann/vim-swap'
-Plugin 'kien/ctrlp.vim' " for MRU files"
+
+ " for MRU files"
+Plugin 'kien/ctrlp.vim'
 
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'vim-ruby/vim-ruby'
@@ -165,7 +167,7 @@ set wildmenu
 set wildmode=longest,list,full
 
 " (Hopefully) removes the delay when hitting esc in insert mode
-set noesckeys
+" set noesckeys
 set ttimeout
 set ttimeoutlen=0
 set notimeout
@@ -567,3 +569,9 @@ let test#ruby#rspec#file_pattern = '_spec\.rb'
 nnoremap <leader>t :TestNearest<cr>
 nnoremap <leader>f :TestFile<cr>
 nnoremap <leader>a :TestSuite<cr>
+
+" ale
+let g:ale_linters = {
+\ 'ruby': ['rubocop'],
+\ 'elixir': ['credo']
+\}

@@ -25,16 +25,8 @@ alias grep='grep --color'
 alias t="touch"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
 
-alias v='vim'
-alias w='vim **<TAB>' # triggers fzf
-alias rs='clear && rails s -p 5000'
-alias rc='clear && rails console'
+alias v='nvim'
 alias j='clear && jobs -l'
-alias p='clear && pry '
-alias ps='clear && ps aux'
-alias psg='ps aux | grep'
-alias psgu='ps aux | grep unicorn'
-alias psgn='ps aux | grep nginx'
 
 # alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 alias e='emacs --no-splash'
@@ -118,17 +110,17 @@ alias ct='cargo test'
 alias tmuxinator='TERM=xterm-256color tmuxinator'
 alias tmux="TERM=screen-256color-bce tmux"
 alias tls='tmux ls'
-alias tmuxconf='vim ~/.tmux.conf'
+alias tmuxconf='nvim ~/.tmux.conf'
 
 # ssh
-alias sconfig='vim ~/.ssh/config'
-alias sshconfig='vim ~/.ssh/config'
-alias hosts='sudo vim /etc/hosts'
-alias known_hosts='vim ~/.ssh/known_hosts'
+alias sconfig='nvim ~/.ssh/config'
+alias sshconfig='nvim ~/.ssh/config'
+alias hosts='sudo nvim /etc/hosts'
+alias known_hosts='nvim ~/.ssh/known_hosts'
 
 # vimrc, zshrc
-alias vimrc='vim ~/.vimrc'
-alias zshrc='vim ~/.zshrc'
+alias vimrc='nvim ~/.vimrc'
+alias zshrc='nvim ~/.zshrc'
 
 # docker
 alias dl='docker ps -l -q'
