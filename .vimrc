@@ -19,8 +19,6 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-" Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-vinegar'    " navigate up a directory with '-' in netrw, among other things
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-markdown'
@@ -28,7 +26,6 @@ Plugin 'tpope/vim-markdown'
 Plugin 'ervandew/supertab'
 Plugin 'skwp/greplace.vim'
 Plugin 'tomtom/tcomment_vim'
-" Plugin 'SirVer/ultisnips'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'junegunn/gv.vim'
@@ -39,14 +36,12 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'dietsche/vim-lastplace'
 Plugin 'machakann/vim-swap'
-Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim' " for MRU files"
 
-" Plugin 'Valloric/YouCompleteMe'
-
+Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'elixir-lang/vim-elixir'
@@ -143,9 +138,6 @@ command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 nnoremap \ :Ag<space>
 
-" Fuzzy finder: ignore stuff that can't be opened, and generated files
-let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
-
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
@@ -186,7 +178,7 @@ let g:airline#extensions#tabline#enabled = 1 " enable vim-airline
 " Toggle between Normal mode to Control Mode
 " nnoremap <Esc> :
 
-" Del in Insert Mode
+" Delete in Insert Mode
 inoremap <C-h> <Left><Del>
 
 " Emacs-like beginning and end of line.
@@ -463,7 +455,7 @@ endfunction
 " Search for call sites for term (excluding its definition) and
 " load into the quickfix list.
 function! SearchForCallSites(term)
-  cexpr system('ag ' . shellescape(a:term) . '\| grep -v def') 
+  cexpr system('ag ' . shellescape(a:term) . '\| grep -v def')
 endfunction
 nnoremap <Leader>cs :call SearchForCallSitesCursor()<CR>
 
@@ -547,6 +539,9 @@ endfunction
 " fzf.vim
 nnoremap <leader>l :Files<CR>
 nnoremap <leader>b :Buffers<CR>
+
+" ignore stuff that can't be opened, and generated files
+let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
