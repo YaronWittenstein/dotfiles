@@ -25,6 +25,7 @@ alias grep='grep --color'
 alias t="touch"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
 
+alias vim='nvim'
 alias v='nvim'
 alias j='clear && jobs -l'
 
