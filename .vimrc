@@ -37,6 +37,7 @@ Plugin 'w0rp/ale'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'sebastianmarkow/deoplete-rust'
 let g:deoplete#enable_at_startup = 1
 
 Plugin 'airblade/vim-gitgutter'
