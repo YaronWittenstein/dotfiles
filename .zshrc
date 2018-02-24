@@ -23,10 +23,11 @@ alias l='ls'
 alias ll='ls'
 alias grep='grep --color'
 alias t="touch"
+alias p="pry"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
 
-alias vim='nvim'
-alias v='nvim'
+alias v='vim'
+# alias vim='nvim'
 alias j='clear && jobs -l'
 
 # alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'

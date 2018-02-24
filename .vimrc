@@ -47,8 +47,10 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'mhinz/vim-mix-format'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI Plugins
@@ -555,6 +557,9 @@ nmap ga <Plug>(EasyAlign)
 " gv.im (git commit browser)
 nnoremap <leader>gg :GV<CR>
 
+" vim-instant-markdown
+let g:instant_markdown_autostart = 1
+
 " vim-test
 let test#strategy = {
   \ 'nearest': 'basic',
@@ -572,12 +577,36 @@ nnoremap <leader>a :TestSuite<cr>
 
 " ale
 let g:ale_linters = {
-\ 'ruby': ['rubocop'],
-\ 'elixir': ['credo']
+\ 'ruby':   ['rubocop'],
+\ 'elixir': ['credo'],
+\ 'rust':   ['cargo'],
 \}
 
+let g:ale_enabled                  = 1
 let g:ale_lint_on_text_changed     = 'always'
 let g:ale_lint_on_save             = 1
 let g:ale_lint_on_enter            = 1
 let g:ale_lint_on_filetype_changed = 1
 let g:ale_sign_column_always       = 1
+let g:ale_warn_about_trailing_whitespace = 1
+
+" ale rust (doc: https://github.com/w0rp/ale/blob/master/doc/ale-rust.txt)
+let g:ale_rust_cargo_use_check  = 1
+
+" neovim terminal
+" if has('nvim')
+"   tnoremap <Esc> <C-\><C-n>
+"   tnoremap <A-[> <Esc>
+" endif
+
+
+" mix format on save
+let g:mix_format_on_save = 1
+
+" rust format on save (rustfmt)
+let g:rustfmt_autosave = 1
+
+" rust racer
+set hidden
+let g:racer_cmd = "racer"
+let g:racer_experimental_completer = 1
