@@ -34,11 +34,11 @@ Plugin 'janko-m/vim-test'
 Plugin 'w0rp/ale'
 
 " auto-complete
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'sebastianmarkow/deoplete-rust'
-let g:deoplete#enable_at_startup = 1
+" Plugin 'Shougo/deoplete.nvim'
+" Plugin 'roxma/nvim-yarp'
+" Plugin 'roxma/vim-hug-neovim-rpc'
+" Plugin 'sebastianmarkow/deoplete-rust'
+" let g:deoplete#enable_at_startup = 1
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
@@ -55,7 +55,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
-Plugin 'mhinz/vim-mix-format'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'racer-rust/vim-racer'
@@ -609,8 +608,8 @@ let g:ale_rust_cargo_use_check  = 1
 
 
 " mix format on save
-let g:mix_format_on_save = 0
-let g:mix_format_silent_errors = 1
+" let g:mix_format_on_save = 0
+" let g:mix_format_silent_errors = 1
 
 " rust format on save (rustfmt)
 let g:rustfmt_autosave = 1
