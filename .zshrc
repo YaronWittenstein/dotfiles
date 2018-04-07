@@ -27,7 +27,7 @@ alias p="pry"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
 
 alias v='vim'
-# alias vim='nvim'
+# alias vim='vim'
 alias j='clear && jobs -l'
 
 # alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
@@ -112,17 +112,17 @@ alias ct='cargo test'
 alias tmuxinator='TERM=xterm-256color tmuxinator'
 alias tmux="TERM=screen-256color-bce tmux"
 alias tls='tmux ls'
-alias tmuxconf='nvim ~/.tmux.conf'
+alias tmuxconf='vim ~/.tmux.conf'
 
 # ssh
-alias sconfig='nvim ~/.ssh/config'
-alias sshconfig='nvim ~/.ssh/config'
-alias hosts='sudo nvim /etc/hosts'
-alias known_hosts='nvim ~/.ssh/known_hosts'
+alias sconfig='vim ~/.ssh/config'
+alias sshconfig='vim ~/.ssh/config'
+alias hosts='sudo vim /etc/hosts'
+alias known_hosts='vim ~/.ssh/known_hosts'
 
 # vimrc, zshrc
-alias vimrc='nvim ~/.vimrc'
-alias zshrc='nvim ~/.zshrc'
+alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
 
 # docker
 alias dl='docker ps -l -q'
