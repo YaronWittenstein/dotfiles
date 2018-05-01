@@ -26,8 +26,7 @@ alias t="touch"
 alias p="pry"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
 
-alias v='vim'
-# alias vim='vim'
+alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias j='clear && jobs -l'
 
 # alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
@@ -112,17 +111,17 @@ alias ct='cargo test'
 alias tmuxinator='TERM=xterm-256color tmuxinator'
 alias tmux="TERM=screen-256color-bce tmux"
 alias tls='tmux ls'
-alias tmuxconf='vim ~/.tmux.conf'
+alias tmuxconf='nvim ~/.tmux.conf'
 
 # ssh
-alias sconfig='vim ~/.ssh/config'
-alias sshconfig='vim ~/.ssh/config'
-alias hosts='sudo vim /etc/hosts'
-alias known_hosts='vim ~/.ssh/known_hosts'
+alias sconfig='nvim ~/.ssh/config'
+alias sshconfig='nvim ~/.ssh/config'
+alias hosts='sudo nvim /etc/hosts'
+alias known_hosts='nvim ~/.ssh/known_hosts'
 
 # vimrc, zshrc
-alias vimrc='vim ~/.vimrc'
-alias zshrc='vim ~/.zshrc'
+alias vimrc='nvim ~/.config/nvim/init.vim'
+alias zshrc='nvim ~/.zshrc'
 
 # docker
 alias dl='docker ps -l -q'
@@ -167,6 +166,7 @@ plugins=(dircircle
         dirhistory
         cp
         cargo
+        rustup
         go
         ruby
         lein
@@ -236,8 +236,15 @@ _fzf_compgen_dir() {
 }
 
 # PATH
+export CARGO_HOME="$HOME/.cargo"
+
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.3.1/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
+
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+export PATH=$RUST_SRC_PATH:$PATH
+
+alias vpn="sudo openvpn ~/Downloads/client.ovpn"

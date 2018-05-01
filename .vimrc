@@ -33,13 +33,6 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'janko-m/vim-test'
 Plugin 'w0rp/ale'
 
-" auto-complete
-" Plugin 'Shougo/deoplete.nvim'
-" Plugin 'roxma/nvim-yarp'
-" Plugin 'roxma/vim-hug-neovim-rpc'
-" Plugin 'sebastianmarkow/deoplete-rust'
-" let g:deoplete#enable_at_startup = 1
-
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'

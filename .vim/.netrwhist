@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/yaronwittenstein/.mix'
+let g:netrw_dirhist_2='/Users/yaronwittenstein/.hex'
+let g:netrw_dirhist_3='/Users/yaronwittenstein/.config'
+let g:netrw_dirhist_4='/Users/yaronwittenstein/dotfiles/.vim/autoload'
