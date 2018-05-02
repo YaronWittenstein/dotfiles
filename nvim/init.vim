@@ -66,10 +66,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'dietsche/vim-lastplace'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'machakann/vim-swap'
+Plug 'tomtom/tcomment_vim'
 
-" ctags
-Plug 'ludovicchabant/vim-gutentags'
-  let g:gutentags_cache_dir = '~/.tags_cache'
+" Set the tag file search order
+set tags=./tags;
 
 Plug 'neomake/neomake'
   " Run Neomake when I save any buffer
@@ -232,9 +232,6 @@ set noerrorbells " don't make noise
 set novisualbell " don't blink
 
 set updatecount=10    "Save buffer every 10 chars typed"
-
-" Set the tag file search order
-set tags=./tags
 
  map <C-h> <C-w>h
  map <C-j> <C-w>j
