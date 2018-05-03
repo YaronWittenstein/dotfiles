@@ -7,9 +7,25 @@ Plug 'sheerun/vim-polyglot'
 
 " Syntastic
 Plug 'vim-syntastic/syntastic'
+  let g:syntastic_enable_ruby_checker = 0
+  let g:syntastic_ruby_checkers = ['']
 
 " Colors
-  let base16colorspace = 256
+  set background=dark
+  set t_Co=256
+
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+
+" Status line
+Plug 'itchyny/lightline.vim'
+  set laststatus=2
+  set noshowmode
+  let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ }
 
 " Elixir
 " Plug 'c-brenn/phoenix.vim'
@@ -30,6 +46,11 @@ Plug 'racer-rust/vim-racer'
   set hidden
   let g:racer_cmd = "racer"
   let g:racer_experimental_completer = 1
+
+" Go
+Plug 'zchee/deoplete-go', { 'do': 'make' }
+  let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
@@ -129,8 +150,7 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 set noerrorbells " don't make noise
 set novisualbell " don't blink
 
-" config
-"" vimrc
+"" vimrc file
 nnoremap <Leader>vi :tabe $MYVIMRC<cr>
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 
