@@ -39,7 +39,9 @@ Plug 'slashmili/alchemist.vim'
 
 Plug 'mhinz/vim-mix-format'
   let g:mix_format_on_save = 1
-  let g:mix_format_silent_errors = 0
+  let g:mix_format_silent_errors = 1
+  " show errors on space
+  nnoremap <space> :messages<CR>
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -69,7 +71,7 @@ Plug 'sebastianmarkow/deoplete-rust'
   let g:deoplete#sources#rust#rust_source_path='/Users/yaronwittenstein/.rustup/toolchains/stable-x86_64-apple-darwin'
 
 Plug 'kien/ctrlp.vim'
-  nnoremap <space> :CtrlPMRU<CR>
+  " nnoremap <space> :CtrlPMRU<CR>
 
 " Set no max file limit
 let g:ctrlp_max_files = 0
