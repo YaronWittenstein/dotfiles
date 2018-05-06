@@ -37,6 +37,10 @@ Plug 'slashmili/alchemist.vim'
   let g:alchemist_iex_term_size = 15
   let g:alchemist_iex_term_split = 'split'
 
+Plug 'mhinz/vim-mix-format'
+  let g:mix_format_on_save = 1
+  let g:mix_format_silent_errors = 0
+
 " Rust
 Plug 'rust-lang/rust.vim'
   let g:rustfmt_autosave  = 1
@@ -146,11 +150,7 @@ set nocursorcolumn " do not highlight current column
 " Search and replace the word under the cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
-" Misc
-set noerrorbells " don't make noise
-set novisualbell " don't blink
-
-"" vimrc file
+" vimrc file
 nnoremap <Leader>vi :tabe $MYVIMRC<cr>
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 
@@ -239,6 +239,8 @@ nnoremap : ;
 "  expand path of current file in command mode remapping command-line mode
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
+" Misc
+set number
 set nowrap
 set backupdir=~/.tmp
 set directory=~/.tmp  " Don't clutter my dirs up with swp and tmp files
