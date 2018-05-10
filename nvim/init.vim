@@ -22,6 +22,10 @@ Plug 'vim-syntastic/syntastic'
 " Status line
 Plug 'itchyny/lightline.vim'
   set laststatus=2
+
+  " Format the status line
+  set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
   set noshowmode
   let g:lightline = {
       \ 'colorscheme': 'powerline',
@@ -83,9 +87,14 @@ Plug 'junegunn/fzf.vim'
   nnoremap <Leader>b :Buffers<CR>
 
 " Git
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
   nnoremap <Leader>gg :GV<CR>
+
+" Markdown
+Plug 'junegunn/goyo.vim'
+Plug 'suan/vim-instant-markdown'
 
 " Misc
 Plug 'tpope/vim-surround'
@@ -115,7 +124,7 @@ Plug 'janko-m/vim-test'
     \ 'file':    'basic',
     \ 'suite':   'basic'
   \}
-  let g:test#preserve_screen       = 0
+  let g:test#preserve_screen       = 1
   let test#ruby#rspec#executable   = 'bundle exec rspec'
   let test#ruby#rspec#file_pattern = '_spec\.rb'
 
@@ -131,6 +140,9 @@ set mouse=""
 " Encoding
 set encoding=utf-8
 
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
 " Identation
 filetype plugin indent on
 
@@ -138,7 +150,11 @@ filetype plugin indent on
 set tabstop=2
 set shiftwidth=2 " identation defaults to 2 spaces"
 set shiftround   " When at 3 spaces and I hit >>, go to 4, not 5.
+
+" Use spaces instead of tabs
 set expandtab
+
+" Be smart when using tabs ;)
 set smarttab
 
 " Search
@@ -191,6 +207,9 @@ nnoremap <C-s> :w<cr>
 " Go to definition (ctags)
 nnoremap t <C-]>
 
+" Index ctags from any project, including those outside Rails
+nnoremap <Leader>ct :!ctags -R .<CR>
+
 map <C-t> <esc>:tabnew<CR>
 map <C-x> <C-w>c
 
@@ -242,18 +261,29 @@ nnoremap : ;
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " Misc
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+set scrolloff=3    " keep more context when scrolling off the end of a buffer
+set nowritebackup  " only in case you don't want a backup file while editing
+set noswapfile
 set number
 set nowrap
 set backupdir=~/.tmp
 set directory=~/.tmp  " Don't clutter my dirs up with swp and tmp files
 set autowrite         " Save buffer automatically when changing files"
 set autoread          " If a file is changed outside of vim, automatically reload it without asking
-set showmatch
 set guioptions-=T
 set guifont=Consolas:h14
 set mouse=""
+
+" No annoying sound on errors
 set noerrorbells " don't make noise
 set novisualbell " don't blink
+set t_vb=
+set tm=500
 
 set updatecount=10    "Save buffer every 10 chars typed"
 
@@ -272,6 +302,36 @@ cnoremap w!! %!sudo tee > /dev/null
 " Search and replace the word under the cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
+" Fast saving
+nmap <Leader>w :w!<cr>
+
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7
+
+" Height of the command bar
+set cmdheight=2
+
+"Always show current position
+set ruler
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" Add a bit extra margin to the left
+set foldcolumn=1
+
+" Remap VIM 0 to first non-blank character
+map 0 ^
 
 " RENAME CURRENT FILE (thanks Gary Bernhardt)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -296,3 +356,11 @@ func! DeleteTrailingWS()
 endfunc
 au BufWrite * silent call DeleteTrailingWS()
 """"" End Normalization ================""
+
+" Returns true if paste mode is enabled
+function! HasPaste()
+  if &paste
+    return 'PASTE MODE  '
+  endif
+  return ''
+ endfunction
