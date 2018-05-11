@@ -126,11 +126,8 @@ Plug 'neomake/neomake'
 
 " Testing
 Plug 'janko-m/vim-test'
-  let test#strategy = {
-    \ 'nearest': 'basic',
-    \ 'file':    'basic',
-    \ 'suite':   'basic'
-  \}
+  let test#strategy = "neovim"
+
   let g:test#preserve_screen       = 1
   let test#ruby#rspec#executable   = 'bundle exec rspec'
   let test#ruby#rspec#file_pattern = '_spec\.rb'
