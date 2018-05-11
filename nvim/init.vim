@@ -104,8 +104,15 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'machakann/vim-swap'
 Plug 'tomtom/tcomment_vim'
 
+" Ctags
 " Set the tag file search order
 set tags=./tags;
+
+" Go to definition (ctags)
+nnoremap t <C-]>
+
+" Index ctags from any project, including those outside Rails
+nnoremap <Leader>ct :!ctags -R .<CR>
 
 Plug 'neomake/neomake'
   " Run Neomake when I save any buffer
@@ -204,20 +211,14 @@ cnoremap <expr> W (getcmdtype() is# ':' && empty(getcmdline())) ? 'w' : 'W'
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<cr>
 
-" Go to definition (ctags)
-nnoremap t <C-]>
-
-" Index ctags from any project, including those outside Rails
-nnoremap <Leader>ct :!ctags -R .<CR>
-
 map <C-t> <esc>:tabnew<CR>
 map <C-x> <C-w>c
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+nnoremap <Left> :echo "Use h"<CR>
+nnoremap <Right> :echo "Use l"<CR>
+nnoremap <Up> :echo "Use k"<CR>
+nnoremap <Down> :echo "Use j"<CR>
 
 
 " Make Y yank to the end of line
