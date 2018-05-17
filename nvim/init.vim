@@ -61,13 +61,20 @@ Plug 'racer-rust/vim-racer'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
   let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+  inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+  inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#enable_smart_case = 1
+  let g:deoplete#max_menu_width    = 100
+  let g:deoplete#auto_complete_start_length = 1
 
-  " use tab for completion
-  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+  " use tab to forward cycle
+  inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+  " use tab to backward cycle
+  inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
 
 Plug 'sebastianmarkow/deoplete-rust'
   let g:deoplete#sources#rust#documentation_max_height=20
