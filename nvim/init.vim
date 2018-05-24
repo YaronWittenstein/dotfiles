@@ -103,6 +103,13 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'suan/vim-instant-markdown'
 
+" Spelling
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd FileType gitcommit setlocal spell
+
 " Misc
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -133,9 +140,10 @@ Plug 'neomake/neomake'
 
 " Testing
 Plug 'janko-m/vim-test'
-  let test#strategy = "neovim"
+  " let test#strategy = "neovim"
+  let test#strategy = "basic"
 
-  let g:test#preserve_screen       = 1
+  let g:test#preserve_screen       = 0
   let test#ruby#rspec#executable   = 'bundle exec rspec'
   let test#ruby#rspec#file_pattern = '_spec\.rb'
 
@@ -296,7 +304,6 @@ set updatecount=10    "Save buffer every 10 chars typed"
  map <C-j> <C-w>j
  map <C-k> <C-w>k
  map <C-l> <C-w>l
-
 
  " Keep the cursor in place while joining lines
 nnoremap J mzJ`z`
