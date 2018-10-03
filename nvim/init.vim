@@ -42,7 +42,7 @@ Plug 'slashmili/alchemist.vim'
   let g:alchemist_iex_term_split = 'split'
 
 Plug 'mhinz/vim-mix-format'
-  let g:mix_format_on_save = 1
+  let g:mix_format_on_save = 0
   let g:mix_format_silent_errors = 1
   " show errors on space
   nnoremap <space> :messages<CR>
@@ -56,6 +56,11 @@ Plug 'racer-rust/vim-racer'
   set hidden
   let g:racer_cmd = "racer"
   let g:racer_experimental_completer = 1
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'zsh install.sh',
+    \ }
 
 " Go
 Plug 'zchee/deoplete-go', { 'do': 'make' }
@@ -102,6 +107,7 @@ Plug 'junegunn/gv.vim'
 " Markdown
 Plug 'junegunn/goyo.vim'
 Plug 'suan/vim-instant-markdown'
+  let g:markdown_fenced_languages = ['html', 'ruby', 'elixir']
 
 " Spelling
 " Autocomplete with dictionary words when spell check is on
