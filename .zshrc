@@ -30,20 +30,13 @@ alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias j='clear && jobs -l'
 
 # alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-alias e='emacs --no-splash'
+alias e='emacs -nw'
 
 alias tlf='tail -f'
 alias reindex='ctags -R .'
 
-# spot.im
-alias spot='/Users/yaronwittenstein/spot.im/'
 alias learn='/Users/yaronwittenstein/learn/'
 alias code='/Users/yaronwittenstein/learn/'
-alias dev='cd /Users/yaronwittenstein/spot.im && tmuxinator start spotim'
-alias devkill='tmux kill-session -t spotim'
-alias devk='tmux kill-session -t spotim'
-alias killdev='tmux kill-session -t spotim'
-alias kdev='tmux kill-session -t spotim'
 
 # personal
 alias yaron='/Users/yaronwittenstein/'
@@ -99,6 +92,9 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C
 
 # elixir
 alias mt='mix test'
+alias mf='mix format'
+alias mc='mix compile'
+alias mm='mix compile'
 alias mdeps='mix deps.get; mix deps.compile'
 alias mr='mix run --no-halt'
 
@@ -140,7 +136,6 @@ export LANG=en_US.UTF-8
 # Use C-x C-e to edit the current command line
 autoload -U edit-command-line
 zle -N edit-command-line
-# bindkey '\C-z' edit-command-line
 
 # the first Ctrl+z will suspend the currently foregrounded program
 # the second Ctrl+z will foreground the most recently suspended program
@@ -208,7 +203,6 @@ stty -ixon -ixoff 2>/dev/null # really, no flow control
 setopt null_glob
 
 source ~/.profile
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 alias ls='exa --long'
 
@@ -235,6 +229,11 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
+# [Shift-Tab] - move through the completion menu backwards
+if [[ "${terminfo[kcbt]}" != "" ]]; then
+  bindkey "${terminfo[kcbt]}" reverse-menu-complete
+fi
+
 # PATH
 export CARGO_HOME="$HOME/.cargo"
 
@@ -247,4 +246,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export PATH=$RUST_SRC_PATH:$PATH
 
-alias vpn="sudo openvpn ~/Downloads/client.ovpn"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
