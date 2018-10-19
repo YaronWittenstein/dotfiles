@@ -1,6 +1,32 @@
 " Leader
 let g:mapleader=','
 
+" map each number to its shift-key character
+inoremap 1 !
+inoremap 2 @
+inoremap 3 #
+inoremap 4 $
+inoremap 5 %
+inoremap 6 ^
+inoremap 7 &
+inoremap 8 *
+inoremap 9 (
+inoremap 0 )
+inoremap - _
+" and then the opposite
+inoremap ! 1
+inoremap @ 2
+inoremap # 3
+inoremap $ 4
+inoremap % 5
+inoremap ^ 6
+inoremap & 7
+inoremap * 8
+inoremap ( 9
+inoremap ) 0
+inoremap _ -
+
+
 call plug#begin('~/.config/nvim/autoload/plug.vim')
 
 Plug 'sheerun/vim-polyglot'
@@ -115,7 +141,7 @@ Plug 'junegunn/gv.vim'
 " Markdown
 Plug 'junegunn/goyo.vim'
 Plug 'suan/vim-instant-markdown'
-  let g:markdown_fenced_languages = ['html', 'ruby', 'elixir']
+let g:markdown_fenced_languages = ['html', 'ruby', 'elixir']
 
 " Spelling
 " Autocomplete with dictionary words when spell check is on
@@ -126,7 +152,12 @@ autocmd FileType gitcommit setlocal spell
 
 " Misc
 Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
+
+" can ruin the ( -> 9, ) -> 0 mappings
+"so we use `vim-closer` instead
+" Plug 'jiangmiao/auto-pairs'
+Plug 'rstacruz/vim-closer'
+
 Plug 'dietsche/vim-lastplace'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'machakann/vim-swap'
@@ -245,31 +276,6 @@ nnoremap <Left> :echo "Use h"<CR>
 nnoremap <Right> :echo "Use l"<CR>
 nnoremap <Up> :echo "Use k"<CR>
 nnoremap <Down> :echo "Use j"<CR>
-
-" map each number to its shift-key character
-inoremap 1 !
-inoremap 2 @
-inoremap 3 #
-inoremap 4 $
-inoremap 5 %
-inoremap 6 ^
-inoremap 7 &
-inoremap 8 *
-inoremap 9 (
-inoremap 0 )
-inoremap - _
-" and then the opposite
-inoremap ! 1
-inoremap @ 2
-inoremap # 3
-inoremap $ 4
-inoremap % 5
-inoremap ^ 6
-inoremap & 7
-inoremap * 8
-inoremap ( 9
-inoremap ) 0
-inoremap _ -
 
 " Make Y yank to the end of line
 nnoremap Y y$
