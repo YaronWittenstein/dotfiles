@@ -80,11 +80,19 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " use tab to backward cycle
   inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
-
 Plug 'sebastianmarkow/deoplete-rust'
   let g:deoplete#sources#rust#documentation_max_height=20
   let g:deoplete#sources#rust#racer_binary='/Users/yaronwittenstein/.cargo/bin/racer'
   let g:deoplete#sources#rust#rust_source_path='/Users/yaronwittenstein/.rustup/toolchains/stable-x86_64-apple-darwin'
+
+" TypeScript
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+"
+" For async completion
+Plug 'Shougo/deoplete.nvim'
+" For Denite features
+Plug 'Shougo/denite.nvim'
 
 Plug 'kien/ctrlp.vim'
   " nnoremap <space> :CtrlPMRU<CR>
@@ -238,6 +246,30 @@ nnoremap <Right> :echo "Use l"<CR>
 nnoremap <Up> :echo "Use k"<CR>
 nnoremap <Down> :echo "Use j"<CR>
 
+" map each number to its shift-key character
+inoremap 1 !
+inoremap 2 @
+inoremap 3 #
+inoremap 4 $
+inoremap 5 %
+inoremap 6 ^
+inoremap 7 &
+inoremap 8 *
+inoremap 9 (
+inoremap 0 )
+inoremap - _
+" and then the opposite
+inoremap ! 1
+inoremap @ 2
+inoremap # 3
+inoremap $ 4
+inoremap % 5
+inoremap ^ 6
+inoremap & 7
+inoremap * 8
+inoremap ( 9
+inoremap ) 0
+inoremap _ -
 
 " Make Y yank to the end of line
 nnoremap Y y$
@@ -252,7 +284,6 @@ vnoremap K :m '<-2<CR>gv=gv
 " Reselect visual block after indent/outdent indent visual
 vnoremap < <gv
 vnoremap > >gv
-
 
 " Edit
 "  edit another file in the same directory as the current file
