@@ -2,29 +2,29 @@
 let g:mapleader=','
 
 " map each number to its shift-key character
-inoremap 1 !
-inoremap 2 @
-inoremap 3 #
-inoremap 4 $
-inoremap 5 %
-inoremap 6 ^
-inoremap 7 &
-inoremap 8 *
-inoremap 9 (
-inoremap 0 )
-inoremap - _
-" and then the opposite
-inoremap ! 1
-inoremap @ 2
-inoremap # 3
-inoremap $ 4
-inoremap % 5
-inoremap ^ 6
-inoremap & 7
-inoremap * 8
-inoremap ( 9
-inoremap ) 0
-inoremap _ -
+" inoremap 1 !
+" inoremap 2 @
+" inoremap 3 #
+" inoremap 4 $
+" inoremap 5 %
+" inoremap 6 ^
+" inoremap 7 &
+" inoremap 8 *
+" inoremap 9 (
+" inoremap 0 )
+" inoremap - _
+" " and then the opposite
+" inoremap ! 1
+" inoremap @ 2
+" inoremap # 3
+" inoremap $ 4
+" inoremap % 5
+" inoremap ^ 6
+" inoremap & 7
+" inoremap * 8
+" inoremap ( 9
+" inoremap ) 0
+" inoremap _ -
 
 
 call plug#begin('~/.config/nvim/autoload/plug.vim')
@@ -94,6 +94,10 @@ Plug 'zchee/deoplete-go', { 'do': 'make' }
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
   inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
   inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+" Kotlin
+Plug 'udalov/kotlin-vim'
+
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
@@ -366,12 +370,12 @@ set so=7
 " Height of the command bar
 set cmdheight=2
 
+" Configure backspace so it acts as it should act
+set backspace=indent,eol,start
+set whichwrap+=<,>,h,l
+
 "Always show current position
 set ruler
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
