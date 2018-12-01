@@ -27,7 +27,7 @@ let g:mapleader=','
 " inoremap _ -
 
 
-call plug#begin('~/.config/nvim/autoload/plug.vim')
+call plug#begin('~/.vim/plugged')
 
 Plug 'sheerun/vim-polyglot'
 
