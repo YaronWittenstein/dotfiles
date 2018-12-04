@@ -248,3 +248,9 @@ export PATH=$RUST_SRC_PATH:$PATH
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# enable zsh autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# enable syntax highlighting
+source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
