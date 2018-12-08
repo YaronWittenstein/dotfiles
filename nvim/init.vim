@@ -89,38 +89,38 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 " Go
-Plug 'zchee/deoplete-go', { 'do': 'make' }
-  let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-  inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-  inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+" Plug 'zchee/deoplete-go', { 'do': 'make' }
+"   let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+"   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+"   inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+"   inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Kotlin
 Plug 'udalov/kotlin-vim'
 
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#max_menu_width    = 100
-  let g:deoplete#auto_complete_start_length = 1
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"   let g:deoplete#enable_at_startup = 1
+"   let g:deoplete#enable_smart_case = 1
+"   let g:deoplete#max_menu_width    = 100
+"   let g:deoplete#auto_complete_start_length = 1
 
   " use tab to forward cycle
   inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
   " use tab to backward cycle
   inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
-Plug 'sebastianmarkow/deoplete-rust'
-  let g:deoplete#sources#rust#documentation_max_height=20
-  let g:deoplete#sources#rust#racer_binary='/Users/yaronwittenstein/.cargo/bin/racer'
-  let g:deoplete#sources#rust#rust_source_path='/Users/yaronwittenstein/.rustup/toolchains/stable-x86_64-apple-darwin'
+" Plug 'sebastianmarkow/deoplete-rust'
+"   let g:deoplete#sources#rust#documentation_max_height=20
+"   let g:deoplete#sources#rust#racer_binary='/Users/yaronwittenstein/.cargo/bin/racer'
+"   let g:deoplete#sources#rust#rust_source_path='/Users/yaronwittenstein/.rustup/toolchains/stable-x86_64-apple-darwin'
 
 " TypeScript
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 "
 " For async completion
-Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/deoplete.nvim'
 " For Denite features
 Plug 'Shougo/denite.nvim'
 
