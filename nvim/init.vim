@@ -143,9 +143,9 @@ Plug 'junegunn/gv.vim'
   nnoremap <Leader>gg :GV<CR>
 
 " Markdown
-Plug 'junegunn/goyo.vim'
-Plug 'suan/vim-instant-markdown'
-let g:markdown_fenced_languages = ['html', 'ruby', 'elixir']
+" Plug 'junegunn/goyo.vim'
+" Plug 'suan/vim-instant-markdown'
+" let g:markdown_fenced_languages = ['html', 'ruby', 'elixir']
 
 " Spelling
 " Autocomplete with dictionary words when spell check is on
