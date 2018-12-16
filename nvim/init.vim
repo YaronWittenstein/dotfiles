@@ -89,7 +89,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 " Go
-Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'zchee/deoplete-go', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
   let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
   inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -112,8 +112,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'sebastianmarkow/deoplete-rust'
   let g:deoplete#sources#rust#documentation_max_height=20
-  let g:deoplete#sources#rust#racer_binary='/Users/yaronwittenstein/.cargo/bin/racer'
-  let g:deoplete#sources#rust#rust_source_path='/Users/yaronwittenstein/.rustup/toolchains/stable-x86_64-apple-darwin'
+  let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
+  let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-apple-darwin'
 
 " TypeScript
 " Plug 'HerringtonDarkholme/yats.vim'
