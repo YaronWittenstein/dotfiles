@@ -78,15 +78,13 @@ Plug 'rust-lang/rust.vim'
   let g:rustfmt_autosave  = 1
   let g:rust_clip_command = 'pbcopy'
 
-Plug 'racer-rust/vim-racer'
-  set hidden
-  let g:racer_cmd = "racer"
-  let g:racer_experimental_completer = 1
-
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'zsh install.sh',
     \ }
+
+  set hidden
+  let g:LanguageClient_serverCommands = { 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'] }
 
 " Go
 Plug 'zchee/deoplete-go', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
@@ -97,7 +95,6 @@ Plug 'zchee/deoplete-go', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/sym
 
 " Kotlin
 Plug 'udalov/kotlin-vim'
-
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
@@ -129,6 +126,25 @@ Plug 'kien/ctrlp.vim'
 
 " Set no max file limit
 let g:ctrlp_max_files = 0
+
+" ale (Asynchronous linting)
+Plug 'w0rp/ale'
+  let g:ale_linters = {
+  \ 'ruby':   ['rubocop'],
+  \ 'elixir': ['credo'],
+  \ 'rust':   ['cargo'],
+  \}
+
+let g:ale_enabled                  = 1
+let g:ale_lint_on_text_changed     = 'always'
+let g:ale_lint_on_save             = 1
+let g:ale_lint_on_enter            = 1
+let g:ale_lint_on_filetype_changed = 1
+let g:ale_sign_column_always       = 1
+let g:ale_warn_about_trailing_whitespace = 1
+
+" ale rust (doc: https://github.com/w0rp/ale/blob/master/doc/ale-rust.txt)
+let g:ale_rust_cargo_use_check  = 1
 
 " Fuzzy Search
 Plug 'junegunn/fzf.vim'
