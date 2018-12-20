@@ -93,9 +93,6 @@ Plug 'zchee/deoplete-go', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/sym
   inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
   inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
-" Kotlin
-Plug 'udalov/kotlin-vim'
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#enable_smart_case = 1
@@ -112,13 +109,10 @@ Plug 'sebastianmarkow/deoplete-rust'
   let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
   let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-apple-darwin'
 
-" TypeScript
-" Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-"
-" For async completion
-" Plug 'Shougo/deoplete.nvim'
-" For Denite features
+
+" WASM
+Plug 'rhysd/vim-wasm'
+
 Plug 'Shougo/denite.nvim'
 
 Plug 'kien/ctrlp.vim'
