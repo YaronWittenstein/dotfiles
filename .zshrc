@@ -1,5 +1,3 @@
-export rvm_recommended_ruby='ruby-2.3.1'
-
 #Path to your oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 
@@ -29,8 +27,9 @@ alias tr="tree -a -C -I '.git|.DS_Store' | less"
 alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias j='clear && jobs -l'
 
-# alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 alias e='emacs -nw'
+alias emacs='emacs -nw'
 
 alias tlf='tail -f'
 alias reindex='ctags -R .'
@@ -40,9 +39,9 @@ alias code='/Users/yaronwittenstein/learn/'
 
 # personal
 alias yaron='/Users/yaronwittenstein/'
-alias dropbox='/Users/yaronwittenstein/Dropbox/'
-alias work='/Users/yaronwittenstein/Dropbox/work/'
-alias code='/Users/yaronwittenstein/Dropbox/work/code/'
+alias code='~/code/'
+alias work='~/work'
+alias sm='~/work/sm'
 alias desktop='/Users/yaronwittenstein/Desktop'
 
 # sudo
@@ -119,6 +118,9 @@ alias known_hosts='nvim ~/.ssh/known_hosts'
 alias vimrc='nvim ~/.config/nvim/init.vim'
 alias zshrc='nvim ~/.zshrc'
 
+# init.el (emacs)
+alias init.el='nvim ~/.emacs.d/init.el'
+
 # docker
 alias dl='docker ps -l -q'
 
@@ -156,6 +158,7 @@ export WORDCHARS='*?[]~&;!$%^<>'
 export EDITOR=vim
 
 ZSH_THEME="aussiegeek"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 plugins=(dircircle
         dirhistory
@@ -166,8 +169,8 @@ plugins=(dircircle
         ruby
         lein
         bundler
+        rbenv
         gem
-        rvm
         mix
         rust
         brew
@@ -186,9 +189,6 @@ source $ZSH/oh-my-zsh.sh
 
 # elixir/erlang history
 export ERL_AFLAGS="-kernel shell_history enabled"
-
-# go
-export GOPATH=$HOME/go
 
 unsetopt BEEP                # No beeps on error
 unsetopt HIST_BEEP           # No history beeps
@@ -235,22 +235,34 @@ if [[ "${terminfo[kcbt]}" != "" ]]; then
 fi
 
 # PATH
-export CARGO_HOME="$HOME/.cargo"
-
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=/Users/yaronwittenstein/.rvm/gems/ruby-2.3.1/bin:$PATH
-export PATH=$GOPATH/bin:$PATH
-export PATH="$HOME/.cargo/bin:$PATH"
 
+# CMake
+export PATH=/Applications/CMake.app/Contents/bin:$PATH
+
+# Go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
+
+# Rust
+export CARGO_HOME="$HOME/.cargo"
+export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export PATH=$RUST_SRC_PATH:$PATH
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# Python
+PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # enable zsh autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # enable syntax highlighting
-source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
