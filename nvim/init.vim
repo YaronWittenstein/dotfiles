@@ -109,7 +109,6 @@ Plug 'sebastianmarkow/deoplete-rust'
   let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
   let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-apple-darwin'
 
-
 " WASM
 Plug 'rhysd/vim-wasm'
 
@@ -205,6 +204,7 @@ Plug 'janko-m/vim-test'
   let g:test#preserve_screen       = 0
   let test#ruby#rspec#executable   = 'bundle exec rspec'
   let test#ruby#rspec#file_pattern = '_spec\.rb'
+  let test#rust#cargotest#executable = 'cargo test -- --nocapture'
 
   nnoremap <Leader>t :TestNearest<cr>
   nnoremap <Leader>f :TestFile<cr>
