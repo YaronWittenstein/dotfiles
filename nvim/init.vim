@@ -198,7 +198,6 @@ Plug 'neomake/neomake'
 
 " Testing
 Plug 'janko-m/vim-test'
-  " let test#strategy = "neovim"
   let test#strategy = "basic"
 
   let g:test#preserve_screen       = 0

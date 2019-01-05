@@ -72,7 +72,6 @@ alias gp='git push origin HEAD'
 alias gpf='git push origin HEAD -f'
 alias gpom='git push origin master'
 alias gl='git pull origin'
-alias gb='git branch'
 alias gba='git branch -a'
 alias gbr='git branch -r'
 alias gs='git status -sb'
@@ -101,6 +100,11 @@ alias mr='mix run --no-halt'
 alias cb='cargo build'
 alias cr='cargo run'
 alias ct='cargo test'
+
+# go
+alias gt='go test'
+alias gb='go build'
+alias gr='go run'
 
 # tmux
 alias tmuxinator='TERM=xterm-256color tmuxinator'
