@@ -203,7 +203,7 @@ Plug 'janko-m/vim-test'
   let g:test#preserve_screen       = 0
   let test#ruby#rspec#executable   = 'bundle exec rspec'
   let test#ruby#rspec#file_pattern = '_spec\.rb'
-  let test#rust#cargotest#executable = 'cargo test -- --nocapture'
+  let test#rust#cargotest#executable = 'cargo test -- --nocapture --color=always'
 
   nnoremap <Leader>t :TestNearest<cr>
   nnoremap <Leader>f :TestFile<cr>
