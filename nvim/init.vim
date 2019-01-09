@@ -100,7 +100,7 @@ Plug 'fatih/vim-go'
   let g:go_fmt_command = "goimports"
 
   " Run format on save
-  let g:go_fmt_autosave = 0
+  let g:go_fmt_autosave = 1
 
   " Don't show errors
   let g:go_fmt_fail_silently = 1
