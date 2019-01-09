@@ -33,8 +33,13 @@ Plug 'sheerun/vim-polyglot'
 
 " Syntastic
 Plug 'vim-syntastic/syntastic'
+  " Ruby
   let g:syntastic_enable_ruby_checker = 0
   let g:syntastic_ruby_checkers = ['']
+
+  " Golang
+  let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+  let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " Colors
   set background=dark
@@ -86,7 +91,54 @@ Plug 'autozimu/LanguageClient-neovim', {
   set hidden
   let g:LanguageClient_serverCommands = { 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'] }
 
-" Go
+" Golang
+Plug 'fatih/vim-go'
+  autocmd FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4   " Set tab stops to 4 for Go files
+  autocmd FileType go setlocal noexpandtab
+
+  " Run goimports when running gofmt
+  let g:go_fmt_command = "goimports"
+
+  " Run format on save
+  let g:go_fmt_autosave = 0
+
+  " Don't show errors
+  let g:go_fmt_fail_silently = 1
+
+  " Show type information
+  let g:go_auto_type_info = 1
+
+  " Highlight variable uses
+  let g:go_auto_sameids = 1
+
+  " Fix for location list when vim-go is used together with Syntastic
+  let g:go_list_type = "quickfix"
+
+  " Add the failing test name to the output of :GoTest
+  let g:go_test_show_name = 1
+
+  " gometalinter configuration
+  let g:go_metalinter_command = ""
+  let g:go_metalinter_deadline = "5s"
+  let g:go_metalinter_enabled = [
+        \ 'deadcode',
+        \ 'gas',
+        \ 'goconst',
+        \ 'gocyclo',
+        \ 'golint',
+        \ 'gosimple',
+        \ 'ineffassign',
+        \ 'vet',
+        \ 'vetshadow'
+        \]
+
+  " Set whether the JSON tags should be snakecase or camelcase.
+  let g:go_addtags_transform = "snakecase"
+
+  " Run gfmt on save
+  " au BufWritePost *.go !gofmt -w %
+
+" Golang auto-complete
 Plug 'zchee/deoplete-go', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
   let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
@@ -94,7 +146,9 @@ Plug 'zchee/deoplete-go', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/sym
   inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+   " Enable deoplete on startup
   let g:deoplete#enable_at_startup = 1
+
   let g:deoplete#enable_smart_case = 1
   let g:deoplete#max_menu_width    = 100
   let g:deoplete#auto_complete_start_length = 1
@@ -203,7 +257,8 @@ Plug 'janko-m/vim-test'
   let g:test#preserve_screen       = 0
   let test#ruby#rspec#executable   = 'bundle exec rspec'
   let test#ruby#rspec#file_pattern = '_spec\.rb'
-  let test#rust#cargotest#executable = 'cargo test -- --nocapture --color=always'
+  let test#rust#cargotest#executable = 'cargo test -- --nocapture --color=always --test-threads=1'
+  let test#golang#gotest#executable = 'go test'
 
   nnoremap <Leader>t :TestNearest<cr>
   nnoremap <Leader>f :TestFile<cr>
@@ -226,7 +281,6 @@ filetype plugin indent on
 " Spaces
 set tabstop=2
 set shiftwidth=2 " identation defaults to 2 spaces"
-set shiftround   " When at 3 spaces and I hit >>, go to 4, not 5.
 
 " Use spaces instead of tabs
 set expandtab
