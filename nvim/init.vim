@@ -109,7 +109,7 @@ Plug 'fatih/vim-go'
   let g:go_auto_type_info = 1
 
   " Highlight variable uses
-  let g:go_auto_sameids = 1
+  let g:go_auto_sameids = 0
 
   " Fix for location list when vim-go is used together with Syntastic
   let g:go_list_type = "quickfix"
@@ -135,13 +135,14 @@ Plug 'fatih/vim-go'
   " Set whether the JSON tags should be snakecase or camelcase.
   let g:go_addtags_transform = "snakecase"
 
-  " Run gfmt on save
-  " au BufWritePost *.go !gofmt -w %
-
 " Golang auto-complete
 Plug 'zchee/deoplete-go', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
   let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+  " Enable completing of go pointers
+  let g:deoplete#sources#go#pointer = 1
+
   inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
   inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 

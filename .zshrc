@@ -87,6 +87,9 @@ alias gmd='git merge develop'
 alias grhh='git reset HEAD --hard'
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gfirst="git rev-list --max-parents=0 HEAD"
+alias gnext="git log --reverse --ancestry-path HEAD..master | head -n 1 | cut -d \  -f 2"
+alias gcount="git log --pretty=format:'' | wc -l"
 
 # elixir
 alias mt='mix test'
@@ -101,10 +104,12 @@ alias cb='cargo build'
 alias cr='cargo run'
 alias ct='cargo test'
 
-# go
+# golang
 alias gt='go test'
 alias gb='go build'
 alias gr='go run'
+
+GOTEST_PALETTE="magenta,white" # https://github.com/rakyll/gotest
 
 # tmux
 alias tmuxinator='TERM=xterm-256color tmuxinator'
@@ -246,7 +251,7 @@ export PATH=/usr/local/bin:$PATH
 # CMake
 export PATH=/Applications/CMake.app/Contents/bin:$PATH
 
-# Go
+# Golang
 export PATH=$PATH:$GOPATH/bin
 export PATH=$GOPATH/bin:$PATH
 
