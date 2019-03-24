@@ -1,6 +1,7 @@
 #Path to your oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 
+
 alias dotfiles='cd ~/dotfiles'
 
 alias b='bundle'
@@ -27,9 +28,9 @@ alias tr="tree -a -C -I '.git|.DS_Store' | less"
 alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias j='clear && jobs -l'
 
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+# alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 alias e='emacs -nw'
-alias emacs='emacs -nw'
+# alias emacs='emacs -nw'
 
 alias tlf='tail -f'
 alias reindex='ctags -R .'
@@ -101,6 +102,7 @@ alias mr='mix run --no-halt'
 
 # rust
 alias cb='cargo build'
+alias cbw='cargo +nightly build --target wasm32-unknown-unknown'
 alias cr='cargo run'
 alias ct='cargo test'
 
@@ -110,12 +112,6 @@ alias gb='go build'
 alias gr='go run'
 
 GOTEST_PALETTE="magenta,white" # https://github.com/rakyll/gotest
-
-# tmux
-alias tmuxinator='TERM=xterm-256color tmuxinator'
-alias tmux="TERM=screen-256color-bce tmux"
-alias tls='tmux ls'
-alias tmuxconf='nvim ~/.tmux.conf'
 
 # ssh
 alias sconfig='nvim ~/.ssh/config'
@@ -160,23 +156,22 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '\C-z' fancy-ctrl-z
 
-#By deafult, zsh considers many characters part of a word (e.g., _ and -).
+# By deafult, zsh considers many characters part of a word (e.g., _ and -).
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
 export EDITOR=vim
 
-ZSH_THEME="aussiegeek"
-# ZSH_THEME="powerlevel9k/powerlevel9k"
+# colors
+export TERM="xterm-256color"
 
-plugins=(dircircle
-        dirhistory
+ZSH_THEME="aussiegeek"
+
+plugins=(dirhistory
         cp
         cargo
-        rustup
         go
         ruby
-        lein
         bundler
         rbenv
         gem
@@ -188,11 +183,8 @@ plugins=(dircircle
         git
         gitfast
         git-remote-branch
-        redis-cl
         vi-mode
-        last-working-dir
-        zsh-autosuggestions
-        zsh-syntax-highlighting)
+        last-working-dir)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -255,6 +247,7 @@ export PATH=/Applications/CMake.app/Contents/bin:$PATH
 export PATH=$PATH:$GOPATH/bin
 export PATH=$GOPATH/bin:$PATH
 
+
 # Rust
 export CARGO_HOME="$HOME/.cargo"
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -272,6 +265,9 @@ eval "$(pyenv virtualenv-init -)"
 
 # enable zsh autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# SDL2
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
 # enable syntax highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
