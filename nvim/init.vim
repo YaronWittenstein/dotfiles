@@ -42,6 +42,7 @@ Plug 'vim-syntastic/syntastic'
   let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " Colors
+" Plug 'dracula/vim', { 'as': 'dracula' }
   set background=dark
   set t_Co=256
 
@@ -164,6 +165,12 @@ Plug 'sebastianmarkow/deoplete-rust'
   let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
   let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-apple-darwin'
 
+  set completeopt-=preview " hide the preview (scratch) buffer
+  " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Plug 'Shougo/echodoc.vim'
+  " let g:echodoc_enable_at_startup = 1
+
 " WASM
 Plug 'rhysd/vim-wasm'
 
@@ -258,7 +265,7 @@ Plug 'janko-m/vim-test'
   let g:test#preserve_screen       = 0
   let test#ruby#rspec#executable   = 'bundle exec rspec'
   let test#ruby#rspec#file_pattern = '_spec\.rb'
-  let test#rust#cargotest#executable = 'cargo test -- --nocapture --color=always --test-threads=1'
+  let test#rust#cargotest#executable = 'cargo test -- ' . expand('%:t') . '--nocapture --color=always --test-threads=1'
   let test#golang#gotest#executable = 'go test'
 
   nnoremap <Leader>t :TestNearest<cr>
