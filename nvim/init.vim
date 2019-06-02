@@ -41,6 +41,9 @@ Plug 'vim-syntastic/syntastic'
   let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
   let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
+  " alias *.smesh as *go
+  au BufRead,BufNewFile *.smesh setfiletype go
+
 " Colors
 " Plug 'dracula/vim', { 'as': 'dracula' }
   set background=dark
@@ -93,7 +96,7 @@ Plug 'autozimu/LanguageClient-neovim', {
   let g:LanguageClient_serverCommands = { 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'] }
 
 " Golang
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
   autocmd FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4   " Set tab stops to 4 for Go files
   autocmd FileType go setlocal noexpandtab
 
@@ -138,6 +141,9 @@ Plug 'fatih/vim-go'
 
 " Golang auto-complete
 Plug 'zchee/deoplete-go', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
+  " let g:go_def_mode='gopls'
+  " let g:go_info_mode='gopls'
+
   let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
@@ -197,6 +203,7 @@ let g:ale_lint_on_enter            = 1
 let g:ale_lint_on_filetype_changed = 1
 let g:ale_sign_column_always       = 1
 let g:ale_warn_about_trailing_whitespace = 1
+" let g:ale_go_langserver_executable = 'gopls'
 
 " ale rust (doc: https://github.com/w0rp/ale/blob/master/doc/ale-rust.txt)
 let g:ale_rust_cargo_use_check  = 1
