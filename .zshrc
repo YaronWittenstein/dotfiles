@@ -89,7 +89,7 @@ alias grhh='git reset HEAD --hard'
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gfirst="git rev-list --max-parents=0 HEAD"
-alias gnext="git log --reverse --ancestry-path HEAD..master | head -n 1 | cut -d \  -f 2"
+alias gnext="~/dotfiles/git/git-next.zsh "
 alias gcount="git log --pretty=format:'' | wc -l"
 
 # elixir
@@ -102,8 +102,7 @@ alias mr='mix run --no-halt'
 
 # rust
 alias cb='cargo build'
-alias cbw='cargo +nightly build --target wasm32-unknown-unknown'
-alias cr='cargo run'
+alias cbw='cargo +nightly build --target wasm32-unknown-unknown --release'
 alias ct='cargo test'
 
 # golang
@@ -112,6 +111,10 @@ alias gb='go build'
 alias gr='go run'
 
 GOTEST_PALETTE="magenta,white" # https://github.com/rakyll/gotest
+
+# wasm
+alias wasm2wat='wapm run wasm2wat'
+alias wat2wasm='wapm run wat2wasm'
 
 # ssh
 alias sconfig='nvim ~/.ssh/config'
@@ -271,3 +274,7 @@ export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
 # enable syntax highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Wasmer
+export WASMER_DIR="$HOME/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"  # This loads wasmer
