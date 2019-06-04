@@ -89,7 +89,7 @@ alias grhh='git reset HEAD --hard'
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gfirst="git rev-list --max-parents=0 HEAD"
-alias gnext="~/dotfiles/git/git-next.zsh "
+alias gnext="clear; ~/dotfiles/git/git-next.zsh"
 alias gcount="git log --pretty=format:'' | wc -l"
 
 # elixir
@@ -247,9 +247,9 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/Applications/CMake.app/Contents/bin:$PATH
 
 # Golang
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$GOPATH/bin:$PATH
-
 
 # Rust
 export CARGO_HOME="$HOME/.cargo"
