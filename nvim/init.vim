@@ -83,9 +83,13 @@ Plug 'mhinz/vim-mix-format'
   nnoremap <space> :messages<CR>
 
 " Rust
-Plug 'rust-lang/rust.vim'
-  let g:rustfmt_autosave  = 1
-  let g:rust_clip_command = 'pbcopy'
+" Plug 'rust-lang/rust.vim'
+    let g:rustfmt_command = "rustfmt"
+    let g:rustfmt_autosave = 1
+    let g:rustfmt_emit_files = 1
+    let g:rustfmt_fail_silently = 0
+    let g:rust_clip_command = 'pbcopy'
+"   let $RUST_SRC_PATH = '~/.rustup/toolchains/stable-x86_64-apple-darwin'
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -93,7 +97,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
   set hidden
-  let g:LanguageClient_serverCommands = { 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'] }
+  " let g:LanguageClient_serverCommands = { 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'] }
 
 " Golang
 " Plug 'fatih/vim-go'
@@ -170,8 +174,8 @@ Plug 'sebastianmarkow/deoplete-rust'
   let g:deoplete#sources#rust#documentation_max_height=20
   let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
   let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-apple-darwin'
+  " set completeopt-=preview " hide the preview (scratch) buffer
 
-  set completeopt-=preview " hide the preview (scratch) buffer
   " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Plug 'Shougo/echodoc.vim'
@@ -193,12 +197,22 @@ Plug 'w0rp/ale'
   let g:ale_linters = {
   \ 'ruby':   ['rubocop'],
   \ 'elixir': ['credo'],
-  \ 'rust':   ['cargo'],
+  \ 'rust':   [],
   \}
+
+let g:ale_rust_rls_config = {
+    \ 'rust': {
+        \ 'all_targets': 1,
+        \ 'build_on_save': 1,
+        \ 'clippy_preference': 'on'
+    \ }
+  \ }
+let g:ale_rust_rls_toolchain = ''
+let g:ale_linters = {'rust': ['rls']}
 
 let g:ale_enabled                  = 1
 let g:ale_lint_on_text_changed     = 'always'
-let g:ale_lint_on_save             = 1
+let g:ale_lint_on_save             = 0
 let g:ale_lint_on_enter            = 1
 let g:ale_lint_on_filetype_changed = 1
 let g:ale_sign_column_always       = 1
@@ -206,7 +220,7 @@ let g:ale_warn_about_trailing_whitespace = 1
 " let g:ale_go_langserver_executable = 'gopls'
 
 " ale rust (doc: https://github.com/w0rp/ale/blob/master/doc/ale-rust.txt)
-let g:ale_rust_cargo_use_check  = 1
+" let g:ale_rust_cargo_use_check  = 1
 
 " Fuzzy Search
 Plug 'junegunn/fzf.vim'
@@ -272,7 +286,7 @@ Plug 'janko-m/vim-test'
   let g:test#preserve_screen       = 0
   let test#ruby#rspec#executable   = 'bundle exec rspec'
   let test#ruby#rspec#file_pattern = '_spec\.rb'
-  let test#rust#cargotest#executable = 'cargo test -- ' . expand('%:t') . '--nocapture --color=always --test-threads=1'
+  let test#rust#cargotest#executable = 'cargo +nightly test -- ' . expand('%:t') . '--nocapture --color=always --test-threads=1'
   let test#golang#gotest#executable = 'go test'
 
   nnoremap <Leader>t :TestNearest<cr>

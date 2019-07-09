@@ -37,6 +37,7 @@ alias reindex='ctags -R .'
 
 alias learn='/Users/yaronwittenstein/learn/'
 alias code='/Users/yaronwittenstein/learn/'
+alias hackerearth='/Users/yaronwittenstein/code/hackerearth/code-monk/basic-programming/io'
 
 # personal
 alias yaron='/Users/yaronwittenstein/'
@@ -101,9 +102,9 @@ alias mdeps='mix deps.get; mix deps.compile'
 alias mr='mix run --no-halt'
 
 # rust
-alias cb='cargo build'
+alias cb='cargo +nightly build'
 alias cbw='cargo +nightly build --target wasm32-unknown-unknown --release'
-alias ct='cargo test'
+alias ct='cargo +nightly test'
 
 # golang
 alias gt='go test'
