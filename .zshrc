@@ -2,6 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 
 
+alias dotemacs='cd ~/dotemacs'
 alias dotfiles='cd ~/dotfiles'
 
 alias b='bundle'
@@ -275,6 +276,9 @@ export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
 # enable syntax highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# cask (emacs)
+export PATH="$HOME/.cask/bin:$PATH"
 
 # Wasmer
 export WASMER_DIR="$HOME/.wasmer"
