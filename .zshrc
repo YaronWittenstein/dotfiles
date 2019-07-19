@@ -46,6 +46,7 @@ alias code='~/code/'
 alias work='~/work'
 alias sm='~/work/sm'
 alias desktop='/Users/yaronwittenstein/Desktop'
+alias cloc='loc'
 
 # sudo
 # alias s='sudo'
