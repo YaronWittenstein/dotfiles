@@ -1,8 +1,8 @@
 #Path to your oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 
-
 alias dotemacs='cd ~/dotemacs'
+alias dotvim='cd ~/dotvim'
 alias dotfiles='cd ~/dotfiles'
 
 alias b='bundle'
