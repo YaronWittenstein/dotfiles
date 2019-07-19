@@ -29,9 +29,7 @@ alias tr="tree -a -C -I '.git|.DS_Store' | less"
 alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias j='clear && jobs -l'
 
-# alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-alias e='emacs -nw'
-# alias emacs='emacs -nw'
+alias e='TERM=xterm-256color emacs -nw'
 
 alias tlf='tail -f'
 alias reindex='ctags -R .'
