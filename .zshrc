@@ -1,3 +1,5 @@
+# zmodload zsh/zprof
+
 #Path to your oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 
@@ -43,6 +45,8 @@ alias yaron='/Users/yaronwittenstein/'
 alias code='~/code/'
 alias work='~/work'
 alias sm='~/work/sm'
+alias svm='~/work/sm/svm'
+alias blog='~/code/blog/posts/'
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias cloc='loc'
 
@@ -134,8 +138,8 @@ alias init.el='nvim ~/.emacs.d/init.el'
 alias dl='docker ps -l -q'
 
 # Initialize completion
-autoload -U compinit
-compinit
+autoload -Uz compinit
+compinit -C
 
 # colorize terminal
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
@@ -185,8 +189,6 @@ plugins=(dirhistory
         osx
         gem
         git
-        gitfast
-        git-remote-branch
         vi-mode
         last-working-dir)
 
@@ -282,3 +284,5 @@ export PATH="$HOME/.cask/bin:$PATH"
 # Wasmer
 export WASMER_DIR="$HOME/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"  # This loads wasmer
+
+# zprof
