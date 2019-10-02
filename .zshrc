@@ -13,7 +13,7 @@ alias be='bundle exec'
 
 alias ..='cd ..'
 alias ...='cd ../..'
-alias c='clear'
+alias c='cd'
 alias cd..='cd ..'
 alias cd.='cd ..'
 alias c..='cd..'
@@ -46,7 +46,8 @@ alias code='~/code/'
 alias work='~/work'
 alias sm='~/work/sm'
 alias svm='~/work/sm/svm'
-alias blog='~/code/blog/posts/'
+alias blog='~/code/yaronwittenstein'
+alias newsletter='~/code/read-it-or-throw-it'
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias cloc='loc'
 
@@ -135,7 +136,18 @@ alias zshrc='nvim ~/.zshrc'
 alias init.el='nvim ~/.emacs.d/init.el'
 
 # docker
+alias dp='docker pull'
 alias dl='docker ps -l -q'
+alias di='docker image'
+alias dc='docker container'
+alias dib='docker image build'
+alias dirm='docker image rm'
+alias dirmf='docker image rm -f'
+alias dils='docker image ls'
+alias dls='docker container ls'
+alias dr='docker run -it'
+alias drm='docker rm'
+alias drmf='docker rm -f'
 
 # Initialize completion
 autoload -Uz compinit
@@ -169,6 +181,7 @@ bindkey '\C-z' fancy-ctrl-z
 export WORDCHARS='*?[]~&;!$%^<>'
 
 export EDITOR=vim
+# export EDITOR='emacsclient -nw -c -a ""'
 
 # colors
 export TERM="xterm-256color"
@@ -176,6 +189,7 @@ export TERM="xterm-256color"
 ZSH_THEME="aussiegeek"
 
 plugins=(dirhistory
+        docker
         cp
         cargo
         go
@@ -219,7 +233,7 @@ elasticsearch='elasticsearch -Des.insecure.allow.root=true'
 # fzf (fuzzy finder)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-export FZF_COMPLETION_TRIGGER=';'
+export FZF_COMPLETION_TRIGGER=','
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
