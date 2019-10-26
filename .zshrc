@@ -51,9 +51,6 @@ alias newsletter='~/code/read-it-or-throw-it'
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias cloc='loc'
 
-# sudo
-# alias s='sudo'
-
 # gem
 alias gemb='gem build *.gemspec'
 alias gemu='gem uninstall'
@@ -145,7 +142,8 @@ alias dirm='docker image rm'
 alias dirmf='docker image rm -f'
 alias dils='docker image ls'
 alias dls='docker container ls'
-alias dr='docker run -it'
+alias dr='docker run -it --rm'
+alias dk='docker kill'
 alias drm='docker rm'
 alias drmf='docker rm -f'
 
@@ -295,8 +293,11 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # cask (emacs)
 export PATH="$HOME/.cask/bin:$PATH"
 
-# Wasmer
+# wasmer
 export WASMER_DIR="$HOME/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"  # This loads wasmer
+
+# starship prompt
+eval "$(starship init zsh)"
 
 # zprof
