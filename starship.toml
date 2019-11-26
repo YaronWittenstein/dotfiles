@@ -15,3 +15,8 @@ show_swap = true
 threshold = -1
 style = "bold dimmed green"
 disabled = false
+
+[kubernetes]
+symbol = "⛵ "
+style = "dim green"
+disabled = false
