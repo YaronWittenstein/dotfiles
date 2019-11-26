@@ -93,7 +93,27 @@ alias glg="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gfirst="git rev-list --max-parents=0 HEAD"
 alias gnext="clear; ~/dotfiles/git/git-next.zsh"
+alias gn="gnext; glog"
 alias gcount="git log --pretty=format:'' | wc -l"
+
+# k8s
+alias k="kubectl"
+alias kdescp="kubectl describe"
+alias kdescp="kubectl describe pod"
+alias kgp="kubectl get pods"
+alias kls="kubectl get pods"
+alias kpls="kubectl get pods"
+alias kgn="kubectl get nodes"
+alias knls="kubectl get nodes"
+alias kdp="kubectl delete pod"
+alias kdpa="kubectl delete --all pods"
+alias kc="kubectl create"
+alias mk="minikube"
+alias h="helm"
+alias arl="argo list"
+alias arls="argo list"
+alias ars="argo submit"
+alias ard="argo delete"
 
 # elixir
 alias mt='mix test'
