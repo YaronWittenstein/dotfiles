@@ -98,22 +98,25 @@ alias gcount="git log --pretty=format:'' | wc -l"
 
 # k8s
 alias k="kubectl"
-alias kdescp="kubectl describe"
+alias kdesc="kubectl describe"
 alias kdescp="kubectl describe pod"
 alias kgp="kubectl get pods"
 alias kls="kubectl get pods"
 alias kpls="kubectl get pods"
 alias kgn="kubectl get nodes"
 alias knls="kubectl get nodes"
+alias knsls="kubectl get namespace"
 alias kdp="kubectl delete pod"
 alias kdpa="kubectl delete --all pods"
+# alias kdpa="argo delete --all; kubectl delete --all pods"
 alias kc="kubectl create"
 alias mk="minikube"
-alias h="helm"
 alias arl="argo list"
 alias arls="argo list"
 alias ars="argo submit"
 alias ard="argo delete"
+alias arda="argo delete --all"
+alias h="helm"
 
 # elixir
 alias mt='mix test'
@@ -153,8 +156,8 @@ alias zshrc='nvim ~/.zshrc'
 alias init.el='nvim ~/.emacs.d/init.el'
 
 # docker
+alias d='docker '
 alias dp='docker pull'
-alias dl='docker ps -l -q'
 alias di='docker image'
 alias dc='docker container'
 alias dib='docker image build'
@@ -162,6 +165,7 @@ alias dirm='docker image rm'
 alias dirmf='docker image rm -f'
 alias dils='docker image ls'
 alias dls='docker container ls'
+alias dcls='docker container ls'
 alias dr='docker run -it --rm'
 alias dk='docker kill'
 alias drm='docker rm'
@@ -319,5 +323,10 @@ export WASMER_DIR="$HOME/.wasmer"
 
 # starship prompt
 eval "$(starship init zsh)"
+
+# k8s auto-completion
+source <(kubectl completion zsh)
+
+eval $(minikube docker-env)
 
 # zprof
