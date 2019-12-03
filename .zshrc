@@ -100,23 +100,31 @@ alias gcount="git log --pretty=format:'' | wc -l"
 alias k="kubectl"
 alias kdesc="kubectl describe"
 alias kdescp="kubectl describe pod"
-alias kgp="kubectl get pods"
-alias kls="kubectl get pods"
-alias kpls="kubectl get pods"
-alias kgn="kubectl get nodes"
-alias knls="kubectl get nodes"
+alias kgp="kubectl get pods -o wide"
+alias kls="kubectl get pods -o wide"
+alias kpls="kubectl get pods -o wide"
+alias kgn="kubectl get nodes -o wide"
+alias knls="kubectl get nodes -o wide"
+alias kgs="kubectl get services -o wide"
+alias ksls="kubectl get services -o wide"
 alias knsls="kubectl get namespace"
 alias kdp="kubectl delete pod"
+alias kds="kubectl delete service"
 alias kdpa="kubectl delete --all pods"
 # alias kdpa="argo delete --all; kubectl delete --all pods"
 alias kc="kubectl create"
-alias mk="minikube"
+alias ka="kubectl apply"
+alias kd="kubectl delete"
+alias kx="kubectl exec"
+alias klg="kubectl logs"
+alias klog="kubectl logs"
 alias arl="argo list"
 alias arls="argo list"
 alias ars="argo submit"
 alias ard="argo delete"
 alias arda="argo delete --all"
-alias h="helm"
+# alias mk="minikube"
+# alias h="helm"
 
 # elixir
 alias mt='mix test'
@@ -160,6 +168,7 @@ alias d='docker '
 alias dp='docker pull'
 alias di='docker image'
 alias dc='docker container'
+alias db='docker image build'
 alias dib='docker image build'
 alias dirm='docker image rm'
 alias dirmf='docker image rm -f'
@@ -326,7 +335,5 @@ eval "$(starship init zsh)"
 
 # k8s auto-completion
 source <(kubectl completion zsh)
-
-eval $(minikube docker-env)
 
 # zprof
