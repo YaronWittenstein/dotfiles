@@ -170,7 +170,6 @@ alias zshrc='nvim ~/.zshrc'
 alias init.el='nvim ~/.emacs.d/init.el'
 
 # docker
-alias d='docker '
 alias dp='docker pull'
 alias di='docker image'
 alias dc='docker container'
