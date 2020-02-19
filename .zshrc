@@ -28,7 +28,7 @@ alias t="touch"
 alias p="pry"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
 
-alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+# alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias j='clear && jobs -l'
 
 alias e='TERM=xterm-256color emacs -nw'
@@ -70,8 +70,11 @@ alias gamend='git commit --amend'
 alias gac='gaa; gc'
 alias gco='git checkout'
 alias gcod='git checkout develop'
+alias d='git checkout develop'
 alias gcom='git checkout master'
+alias m='git checkout master'
 alias gcob='git checkout -b'
+alias p='git push origin HEAD'
 alias gp='git push origin HEAD'
 alias gpf='git push origin HEAD -f'
 alias gpom='git push origin master'
@@ -136,8 +139,11 @@ alias mr='mix run --no-halt'
 
 # rust
 alias cb='cargo +nightly build'
+alias cu='cargo +nightly update'
+alias cr='cargo +nightly run'
 alias cbw='cargo +nightly build --target wasm32-unknown-unknown --release'
-alias ct='cargo +nightly test'
+alias ct='cargo +nightly test -- --nocapture'
+alias ctd='cargo +nightly test --doc -- --nocapture'
 
 # golang
 alias gt='go test'
@@ -211,8 +217,7 @@ bindkey '\C-z' fancy-ctrl-z
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-export EDITOR=vim
-# export EDITOR='emacsclient -nw -c -a ""'
+export EDITOR='TERM=xterm-256color emacs -nw'
 
 # colors
 export TERM="xterm-256color"
