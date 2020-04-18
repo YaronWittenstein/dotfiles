@@ -138,10 +138,13 @@ alias mdeps='mix deps.get; mix deps.compile'
 alias mr='mix run --no-halt'
 
 # rust
+alias rr='cargo +nightly build'
+alias rt='cargo +nightly test -- --nocapture'
 alias cb='cargo +nightly build'
+alias cbr='cargo +nightly build --release'
+alias cbw='cargo +nightly build --target wasm32-unknown-unknown --release'
 alias cu='cargo +nightly update'
 alias cr='cargo +nightly run'
-alias cbw='cargo +nightly build --target wasm32-unknown-unknown --release'
 alias ct='cargo +nightly test -- --nocapture'
 alias ctd='cargo +nightly test --doc -- --nocapture'
 
@@ -153,8 +156,8 @@ alias gr='go run'
 GOTEST_PALETTE="magenta,white" # https://github.com/rakyll/gotest
 
 # wasm
-alias wasm2wat='wapm run wasm2wat'
-alias wat2wasm='wapm run wat2wasm'
+alias wasm2wat='~/wabt/build/wasm2wat'
+alias wat2wasm='~/wabt/build/wat2wasm'
 
 # ssh
 alias sconfig='nvim ~/.ssh/config'
