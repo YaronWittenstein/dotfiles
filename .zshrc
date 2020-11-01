@@ -7,12 +7,9 @@ alias dotemacs='cd ~/dotemacs'
 alias dotvim='cd ~/dotvim'
 alias dotfiles='cd ~/dotfiles'
 
-alias b='bundle'
-alias bi='bundle install'
-alias be='bundle exec'
-
 alias ..='cd ..'
 alias ...='cd ../..'
+alias k='clear'
 alias c='cd'
 alias cd..='cd ..'
 alias cd.='cd ..'
@@ -23,7 +20,7 @@ alias dh='dh -h -c'
 alias ls='ls -alG'
 alias l='ls'
 alias ll='ls'
-alias grep='grep --color'
+alias grep='rg'
 alias t="touch"
 alias p="pry"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
@@ -40,7 +37,7 @@ alias learn='/Users/yaronwittenstein/learn/'
 alias code='/Users/yaronwittenstein/learn/'
 alias hackerearth='/Users/yaronwittenstein/code/hackerearth/code-monk/basic-programming/io'
 
-# personal
+# Personal
 alias yaron='/Users/yaronwittenstein/'
 alias code='~/code/'
 alias work='~/work'
@@ -51,10 +48,16 @@ alias newsletter='~/code/read-it-or-throw-it'
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias cloc='loc'
 
-# gem
+# Ruby gems
 alias gemb='gem build *.gemspec'
 alias gemu='gem uninstall'
 alias  fp="(rm -f *.gem) && gem build *.gemspec && gem inabox *.gem"
+
+# Ruby bundler
+alias b='bundle'
+alias bi='bundle install'
+alias be='bundle exec'
+
 
 alias gi='sudo gem install –no-ri –no-rdoc'
 alias gemi='sudo gem install –no-ri –no-rdoc'
@@ -62,7 +65,7 @@ alias gl='gem list'
 alias gu='gem uninstall '
 alias guall='for i in `gem list --no-versions`; do gem uninstall -aIx $i; done'
 
-# git aliases
+# git 
 alias g='git'
 alias ga='git add'
 alias gc='git commit -m'
@@ -100,7 +103,6 @@ alias gn="gnext; glog"
 alias gcount="git log --pretty=format:'' | wc -l"
 
 # k8s
-alias k="kubectl"
 alias kdesc="kubectl describe"
 alias kdescp="kubectl describe pod"
 alias kgp="kubectl get pods -o wide"
@@ -121,23 +123,10 @@ alias kd="kubectl delete"
 alias kx="kubectl exec"
 alias klg="kubectl logs"
 alias klog="kubectl logs"
-alias arl="argo list"
-alias arls="argo list"
-alias ars="argo submit"
-alias ard="argo delete"
-alias arda="argo delete --all"
 # alias mk="minikube"
 # alias h="helm"
 
-# elixir
-alias mt='mix test'
-alias mf='mix format'
-alias mc='mix compile'
-alias mm='mix compile'
-alias mdeps='mix deps.get; mix deps.compile'
-alias mr='mix run --no-halt'
-
-# rust
+# Rust cargo
 alias rr='cargo +nightly build'
 alias rt='cargo +nightly test -- --nocapture'
 alias cb='cargo +nightly build'
@@ -148,7 +137,7 @@ alias cr='cargo +nightly run'
 alias ct='cargo +nightly test -- --nocapture'
 alias ctd='cargo +nightly test --doc -- --nocapture'
 
-# golang
+# Golang
 alias gt='go test'
 alias gb='go build'
 alias gr='go run'
@@ -166,8 +155,8 @@ alias hosts='sudo nvim /etc/hosts'
 alias known_hosts='nvim ~/.ssh/known_hosts'
 
 # vimrc, zshrc
-alias vimrc='nvim ~/.config/nvim/init.vim'
-alias zshrc='nvim ~/.zshrc'
+alias vimrc='e ~/.config/nvim/init.vim'
+alias zshrc='e ~/.zshrc'
 
 # init.el (emacs)
 alias init.el='nvim ~/.emacs.d/init.el'
@@ -194,7 +183,6 @@ compinit -C
 
 # colorize terminal
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-export GREP_OPTIONS="--color"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -230,7 +218,7 @@ plugins=(dirhistory
         docker
         cp
         cargo
-        go
+        golang
         ruby
         bundler
         rbenv
@@ -305,6 +293,7 @@ export PATH=/Applications/CMake.app/Contents/bin:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$GOPATH/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
 
 # Rust
 export CARGO_HOME="$HOME/.cargo"
@@ -318,6 +307,8 @@ eval "$(rbenv init -)"
 
 # Python
 PATH="~/.pyenv/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -330,14 +321,14 @@ export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 # enable syntax highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# cask (emacs)
+# Cask (emacs)
 export PATH="$HOME/.cask/bin:$PATH"
 
 # wasmer
 export WASMER_DIR="$HOME/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"  # This loads wasmer
 
-# starship prompt
+# Starship prompt
 eval "$(starship init zsh)"
 
 # k8s auto-completion
