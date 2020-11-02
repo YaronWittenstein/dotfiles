@@ -17,7 +17,8 @@ alias c..='cd..'
 alias c.='cd..'
 alias df='df -h'
 alias dh='dh -h -c'
-alias ls='ls -alG'
+alias ls='exa --long'
+alias ls='ls -la'
 alias l='ls'
 alias ll='ls'
 alias grep='rg'
@@ -248,10 +249,6 @@ stty -ixon -ixoff 2>/dev/null # really, no flow control
 # If a pattern for filename generation has no matches, delete the pattern from the argument list;
 # do not report an error unless all the patterns in a command have no matches
 setopt null_glob
-
-source ~/.profile
-
-alias ls='exa --long'
 
 # elasticsearch
 elasticsearch='elasticsearch -Des.insecure.allow.root=true'
