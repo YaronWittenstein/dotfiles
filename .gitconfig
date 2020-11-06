@@ -2,7 +2,7 @@
 	name = Yaron Wittenstein
 	email = yaron.wittenstein@gmail.com
 [core]
-  editor = "NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
+  editor = "emacs -nw"
 	excludesfile = /Users/yaronwittenstein/.gitignore
 [github]
   user = YaronWittenstein
