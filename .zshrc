@@ -293,7 +293,7 @@ export PATH=$PATH:/usr/local/go/bin
 # Rust
 export CARGO_HOME="$HOME/.cargo"
 export PATH="$HOME/.cargo/bin:$PATH"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export PATH=$RUST_SRC_PATH:$PATH
 
 # Ruby

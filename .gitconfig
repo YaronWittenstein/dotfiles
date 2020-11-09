@@ -3,7 +3,7 @@
 	email = yaron.wittenstein@gmail.com
 [core]
   editor = "emacs -nw"
-	excludesfile = /Users/yaronwittenstein/.gitignore
+  excludesfile = ~/yaronwittenstein/.gitignore
 [github]
   user = YaronWittenstein
 [color]
