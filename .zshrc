@@ -296,6 +296,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export PATH=$RUST_SRC_PATH:$PATH
 
+# rust-analyzer
+export PATH="$HOME/.local/bin:$PATH"
+
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
