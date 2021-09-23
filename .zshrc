@@ -14,6 +14,7 @@ alias c='xclip -selection clipboard'
 alias cd..='cd ..'
 alias cd.='cd ..'
 alias ..='cd ..'
+alias c.='cd ..'
 alias df='df -h'
 alias dh='dh -h -c'
 alias ls='exa --long'
@@ -32,30 +33,14 @@ alias e='TERM=xterm-256color emacs -nw'
 alias tlf='tail -f'
 alias reindex='ctags -R .'
 
-alias learn='/Users/yaronwittenstein/learn/'
-alias code='/Users/yaronwittenstein/learn/'
-alias hackerearth='/Users/yaronwittenstein/code/hackerearth/code-monk/basic-programming/io'
-
 # Personal
 alias yaron='/Users/yaronwittenstein/'
 alias code='~/code/'
 alias work='~/work'
 alias sm='~/work/sm'
 alias svm='~/work/sm/svm'
-alias blog='~/code/yaronwittenstein'
-alias newsletter='~/code/read-it-or-throw-it'
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias cloc='loc'
-
-# Ruby gems
-alias gemb='gem build *.gemspec'
-alias gemu='gem uninstall'
-alias  fp="(rm -f *.gem) && gem build *.gemspec && gem inabox *.gem"
-
-# Ruby bundler
-alias b='bundle'
-alias bi='bundle install'
-alias be='bundle exec'
 
 
 alias gi='sudo gem install –no-ri –no-rdoc'
@@ -100,30 +85,6 @@ alias gfirst="git rev-list --max-parents=0 HEAD"
 alias gnext="clear; ~/dotfiles/git/git-next.zsh"
 alias gn="gnext; glog"
 alias gcount="git log --pretty=format:'' | wc -l"
-
-# k8s
-alias kdesc="kubectl describe"
-alias kdescp="kubectl describe pod"
-alias kgp="kubectl get pods -o wide"
-alias kls="kubectl get pods -o wide"
-alias kpls="kubectl get pods -o wide"
-alias kgn="kubectl get nodes -o wide"
-alias knls="kubectl get nodes -o wide"
-alias kgs="kubectl get services -o wide"
-alias ksls="kubectl get services -o wide"
-alias knsls="kubectl get namespace"
-alias kdp="kubectl delete pod"
-alias kds="kubectl delete service"
-alias kdpa="kubectl delete --all pods"
-# alias kdpa="argo delete --all; kubectl delete --all pods"
-alias kc="kubectl create"
-alias ka="kubectl apply"
-alias kd="kubectl delete"
-alias kx="kubectl exec"
-alias klg="kubectl logs"
-alias klog="kubectl logs"
-# alias mk="minikube"
-# alias h="helm"
 
 # Rust cargo
 alias rr='cargo +nightly build'
@@ -218,9 +179,7 @@ plugins=(dirhistory
         cp
         cargo
         golang
-        ruby
         bundler
-        rbenv
         gem
         mix
         rust
@@ -296,9 +255,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export PATH=$RUST_SRC_PATH:$PATH
 
-# rust-analyzer
-export PATH="$HOME/.local/bin:$PATH"
-
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -322,14 +278,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Cask (emacs)
 export PATH="$HOME/.cask/bin:$PATH"
 
-# wasmer
-export WASMER_DIR="$HOME/.wasmer"
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"  # This loads wasmer
-
 # Starship prompt
 eval "$(starship init zsh)"
-
-# k8s auto-completion
-source <(kubectl completion zsh)
 
 # zprof
