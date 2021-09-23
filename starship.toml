@@ -8,10 +8,3 @@ disabled = true
 [jobs]
 symbol = "+ "
 threshold = 4
-
-[memory_usage]
-show_percentage = true
-show_swap = true
-threshold = -1
-style = "bold dimmed green"
-disabled = false

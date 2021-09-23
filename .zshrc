@@ -1,6 +1,4 @@
-# zmodload zsh/zprof
-
-#Path to your oh-my-zsh configuration
+# Path to your oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 
 alias dotemacs='cd ~/dotemacs'
@@ -25,32 +23,23 @@ alias grep='rg'
 alias t="touch"
 alias tr="tree -a -C -I '.git|.DS_Store' | less"
 
-# alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+alias e='TERM=xterm-256color emacs -nw'
 alias j='clear && jobs -l'
 
-alias e='TERM=xterm-256color emacs -nw'
 
 alias tlf='tail -f'
 alias reindex='ctags -R .'
 
 # Personal
 alias yaron='/Users/yaronwittenstein/'
-alias code='~/code/'
 alias work='~/work'
 alias sm='~/work/sm'
 alias svm='~/work/sm/svm'
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias cloc='loc'
 
-
-alias gi='sudo gem install –no-ri –no-rdoc'
-alias gemi='sudo gem install –no-ri –no-rdoc'
-alias gl='gem list'
-alias gu='gem uninstall '
-alias guall='for i in `gem list --no-versions`; do gem uninstall -aIx $i; done'
-
-# git 
-alias g='git'
+# git
 alias ga='git add'
 alias gc='git commit -m'
 alias gamend='git commit --amend'
@@ -86,7 +75,7 @@ alias gnext="clear; ~/dotfiles/git/git-next.zsh"
 alias gn="gnext; glog"
 alias gcount="git log --pretty=format:'' | wc -l"
 
-# Rust cargo
+# Rust
 alias rr='cargo +nightly build'
 alias rt='cargo +nightly test -- --nocapture'
 alias cb='cargo +nightly build'
@@ -109,17 +98,17 @@ alias wasm2wat='~/wabt/build/wasm2wat'
 alias wat2wasm='~/wabt/build/wat2wasm'
 
 # ssh
-alias sconfig='nvim ~/.ssh/config'
-alias sshconfig='nvim ~/.ssh/config'
-alias hosts='sudo nvim /etc/hosts'
-alias known_hosts='nvim ~/.ssh/known_hosts'
+alias sconfig='emacs -nw ~/.ssh/config'
+alias sshconfig='emacs -nw ~/.ssh/config'
+alias hosts='sudo emacs -nw /etc/hosts'
+alias known_hosts='emacs -nw ~/.ssh/known_hosts'
 
 # vimrc, zshrc
-alias vimrc='e ~/.config/nvim/init.vim'
-alias zshrc='e ~/.zshrc'
+alias vimrc='emacs -nw ~/.config/nvim/init.vim'
+alias zshrc='emacs -nw ~/.zshrc'
 
 # init.el (emacs)
-alias init.el='nvim ~/.emacs.d/init.el'
+alias init.el='emacs -nw ~/.emacs.d/init.el'
 
 # docker
 alias dp='docker pull'
@@ -167,7 +156,7 @@ bindkey '\C-z' fancy-ctrl-z
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-export EDITOR='TERM=xterm-256color emacs -nw'
+export EDITOR='emacs -nw'
 
 # colors
 export TERM="xterm-256color"
@@ -180,8 +169,6 @@ plugins=(dirhistory
         cargo
         golang
         bundler
-        gem
-        mix
         rust
         brew
         osx
@@ -207,8 +194,6 @@ stty -ixon -ixoff 2>/dev/null # really, no flow control
 # do not report an error unless all the patterns in a command have no matches
 setopt null_glob
 
-# elasticsearch
-elasticsearch='elasticsearch -Des.insecure.allow.root=true'
 
 # fzf (fuzzy finder)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -269,9 +254,6 @@ eval "$(pyenv virtualenv-init -)"
 # enable zsh autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# SDL2
-export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
-
 # enable syntax highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -280,5 +262,3 @@ export PATH="$HOME/.cask/bin:$PATH"
 
 # Starship prompt
 eval "$(starship init zsh)"
-
-# zprof
