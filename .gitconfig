@@ -2,7 +2,7 @@
 	name = Yaron Wittenstein
 	email = yaron.wittenstein@gmail.com
 [core]
-  editor = "emacs -nw"
+	editor = nvim
   excludesfile = ~/yaronwittenstein/.gitignore
 [github]
   user = YaronWittenstein
@@ -34,3 +34,5 @@
 	show = diff-so-fancy | less --tabs=4 -RFX
 [mergetool]
 	keepBackup = false
+[init]
+	defaultBranch = main

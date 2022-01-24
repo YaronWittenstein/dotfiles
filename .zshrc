@@ -153,7 +153,7 @@ bindkey '\C-z' fancy-ctrl-z
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-export EDITOR='emacs -nw'
+export EDITOR='vim'
 
 # colors
 export TERM="xterm-256color"
