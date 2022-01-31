@@ -50,12 +50,10 @@ alias gcob='git checkout -b'
 alias p='git push origin HEAD'
 alias gp='git push origin HEAD'
 alias gpf='git push origin HEAD -f'
-alias gpom='git push origin main'
 alias gl='git pull origin'
 alias gba='git branch -a'
 alias gbr='git branch -r'
 alias gs='git status -sb'
-alias gst='git stash'
 alias gsq='git rebase -i'
 alias gd='git diff'
 alias gds='git diff --stat=160,120'
@@ -84,13 +82,13 @@ alias ct='cargo +nightly test -- --nocapture'
 alias ctd='cargo +nightly test --doc -- --nocapture'
 
 # Golang
-alias gt='go test'
-alias gb='go build'
-alias gr='go run'
+# alias gt='go test'
+# alias gb='go build'
+# alias gr='go run'
 
 GOTEST_PALETTE="magenta,white" # https://github.com/rakyll/gotest
 
-# wasm
+# Wasm
 alias wasm2wat='~/wabt/build/wasm2wat'
 alias wat2wasm='~/wabt/build/wat2wasm'
 
@@ -108,20 +106,20 @@ alias zshrc='emacs -nw ~/.zshrc'
 alias init.el='emacs -nw ~/.emacs.d/init.el'
 
 # docker
-alias dp='docker pull'
-alias di='docker image'
-alias dc='docker container'
-alias db='docker image build'
-alias dib='docker image build'
-alias dirm='docker image rm'
-alias dirmf='docker image rm -f'
-alias dils='docker image ls'
-alias dls='docker container ls'
-alias dcls='docker container ls'
-alias dr='docker run -it --rm'
-alias dk='docker kill'
-alias drm='docker rm'
-alias drmf='docker rm -f'
+# alias dp='docker pull'
+# alias di='docker image'
+# alias dc='docker container'
+# alias db='docker image build'
+# alias dib='docker image build'
+# alias dirm='docker image rm'
+# alias dirmf='docker image rm -f'
+# alias dils='docker image ls'
+# alias dls='docker container ls'
+# alias dcls='docker container ls'
+# alias dr='docker run -it --rm'
+# alias dk='docker kill'
+# alias drm='docker rm'
+# alias drmf='docker rm -f'
 
 # Initialize completion
 autoload -Uz compinit
@@ -163,13 +161,10 @@ ZSH_THEME="aussiegeek"
 plugins=(dirhistory
         docker
         cp
-        cargo
-        golang
-        bundler
         rust
+        macos
+        bundler
         brew
-        osx
-        gem
         git
         vi-mode
         last-working-dir)
@@ -238,23 +233,23 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export PATH=$RUST_SRC_PATH:$PATH
 
 # Ruby
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # Python
-PATH="~/.pyenv/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# PATH="~/.pyenv/bin:$PATH"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # enable zsh autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # enable syntax highlighting
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Cask (emacs)
+# cask (emacs)
 export PATH="$HOME/.cask/bin:$PATH"
 
 # Starship prompt
