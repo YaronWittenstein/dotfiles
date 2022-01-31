@@ -26,15 +26,13 @@ alias tr="tree -a -C -I '.git|.DS_Store' | less"
 alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias e='TERM=xterm-256color emacs -nw'
 alias j='clear && jobs -l'
-
 alias tlf='tail -f'
-alias reindex='ctags -R .'
 
 # Personal
-alias yaron='/Users/yaronwittenstein/'
-alias work='~/work'
+alias root='/Users/yaronwittenstein/'
+alias gh='~/github'
 alias desktop='/Users/yaronwittenstein/Desktop'
-alias cloc='loc'
+alias cloc='tokei'
 
 # git
 alias ga='git add'
@@ -85,25 +83,24 @@ alias ctd='cargo +nightly test --doc -- --nocapture'
 # alias gt='go test'
 # alias gb='go build'
 # alias gr='go run'
-
-GOTEST_PALETTE="magenta,white" # https://github.com/rakyll/gotest
+# GOTEST_PALETTE="magenta,white" # https://github.com/rakyll/gotest
 
 # Wasm
 alias wasm2wat='~/wabt/build/wasm2wat'
 alias wat2wasm='~/wabt/build/wat2wasm'
 
 # ssh
-alias sconfig='emacs -nw ~/.ssh/config'
-alias sshconfig='emacs -nw ~/.ssh/config'
-alias hosts='sudo emacs -nw /etc/hosts'
-alias known_hosts='emacs -nw ~/.ssh/known_hosts'
+alias sconfig='nvim ~/.ssh/config'
+alias sshconfig='nvim ~/.ssh/config'
+alias hosts='sudo nviw /etc/hosts'
+alias known_hosts='nvim ~/.ssh/known_hosts'
 
 # vimrc, zshrc
-alias vimrc='emacs -nw ~/.config/nvim/init.vim'
-alias zshrc='emacs -nw ~/.zshrc'
+alias vimrc='nvim ~/.config/nvim/init.vim'
+alias zshrc='nvim ~/.zshrc'
 
 # init.el (emacs)
-alias init.el='emacs -nw ~/.emacs.d/init.el'
+alias init.el='nvim ~/.emacs.d/init.el'
 
 # docker
 # alias dp='docker pull'
@@ -151,7 +148,7 @@ bindkey '\C-z' fancy-ctrl-z
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # colors
 export TERM="xterm-256color"
@@ -159,11 +156,9 @@ export TERM="xterm-256color"
 ZSH_THEME="aussiegeek"
 
 plugins=(dirhistory
-        docker
         cp
         rust
         macos
-        bundler
         brew
         git
         vi-mode
