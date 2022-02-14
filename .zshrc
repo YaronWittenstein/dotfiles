@@ -7,7 +7,7 @@ alias dotfiles='cd ~/dotfiles'
 
 alias ..='cd ..'
 alias ...='cd ../..'
-alias k='clear'
+alias k="clear && printf '\e[3J'"
 alias c='xclip -selection clipboard'
 alias cd..='cd ..'
 alias cd.='cd ..'
