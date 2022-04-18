@@ -31,6 +31,7 @@ alias tlf='tail -f'
 # Personal
 alias root='/Users/yaronwittenstein/'
 alias gh='~/github'
+alias learn='~/learn'
 alias desktop='/Users/yaronwittenstein/Desktop'
 alias cloc='tokei'
 
@@ -70,8 +71,9 @@ alias gcount="git log --pretty=format:'' | wc -l"
 
 # Rust
 alias rr='cargo +nightly build'
-alias rt='cargo +nightly test -- --nocapture'
-alias cb='cargo +nightly build'
+alias ww='cargo +nightly build --workspace'
+alias rt='cargo +nightly nextest run'
+alias b='cargo criterion'
 alias cbr='cargo +nightly build --release'
 alias cbw='cargo +nightly build --target wasm32-unknown-unknown --release'
 alias cu='cargo +nightly update'
