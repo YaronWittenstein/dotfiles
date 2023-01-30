@@ -39,7 +39,8 @@ alias cloc='tokei'
 alias ga='git add'
 alias gc='git commit -m'
 alias gamend='git commit --amend'
-alias gac='gaa; gc'
+alias gac='gaa; git commit -m WIP'
+alias xx='gaa; git commit -m WIP'
 alias gco='git checkout'
 alias gcod='git checkout develop'
 alias d='git checkout develop'
@@ -70,16 +71,11 @@ alias gn="gnext; glog"
 alias gcount="git log --pretty=format:'' | wc -l"
 
 # Rust
-alias rr='cargo +nightly build'
-alias ww='cargo +nightly build --workspace'
-alias rt='cargo +nightly nextest run'
+alias rr='cargo build'
+alias ww='cargo build --workspace'
+alias rt='cargo nextest run'
+alias rtr='cargo nextest run --release'
 alias b='cargo criterion'
-alias cbr='cargo +nightly build --release'
-alias cbw='cargo +nightly build --target wasm32-unknown-unknown --release'
-alias cu='cargo +nightly update'
-alias cr='cargo +nightly run'
-alias ct='cargo +nightly test -- --nocapture'
-alias ctd='cargo +nightly test --doc -- --nocapture'
 
 # Golang
 # alias gt='go test'
