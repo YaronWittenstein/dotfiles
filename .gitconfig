@@ -13,7 +13,7 @@
 [diftool]
   prompt = false
 [push]
-  default = current
+	default = matching
 [credential]
 	helper = osxkeychain
 [filter "media"]

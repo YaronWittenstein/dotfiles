@@ -39,7 +39,8 @@ alias cloc='tokei'
 alias ga='git add'
 alias gc='git commit -m'
 alias gamend='git commit --amend'
-alias gac='gaa; gc'
+alias gac='gaa; git commit -m WIP'
+alias xx='gaa; git commit -m WIP'
 alias gco='git checkout'
 alias gcod='git checkout develop'
 alias d='git checkout develop'
@@ -70,22 +71,10 @@ alias gn="gnext; glog"
 alias gcount="git log --pretty=format:'' | wc -l"
 
 # Rust
-alias rr='cargo +nightly build'
-alias ww='cargo +nightly build --workspace'
-alias rt='cargo +nightly nextest run'
+alias rr='cargo build'
+alias rt='cargo nextest run'
+alias rtr='cargo nextest run --release'
 alias b='cargo criterion'
-alias cbr='cargo +nightly build --release'
-alias cbw='cargo +nightly build --target wasm32-unknown-unknown --release'
-alias cu='cargo +nightly update'
-alias cr='cargo +nightly run'
-alias ct='cargo +nightly test -- --nocapture'
-alias ctd='cargo +nightly test --doc -- --nocapture'
-
-# Golang
-# alias gt='go test'
-# alias gb='go build'
-# alias gr='go run'
-# GOTEST_PALETTE="magenta,white" # https://github.com/rakyll/gotest
 
 # Wasm
 alias wasm2wat='~/wabt/build/wasm2wat'
@@ -213,15 +202,10 @@ fi
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH="/opt/homebrew/bin:${PATH}"
 
 # CMake
 export PATH=/Applications/CMake.app/Contents/bin:$PATH
-
-# Golang
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export PATH=$GOPATH/bin:$PATH
-export PATH=$PATH:/usr/local/go/bin
 
 # Rust
 export CARGO_HOME="$HOME/.cargo"
@@ -229,25 +213,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export PATH=$RUST_SRC_PATH:$PATH
 
-# Ruby
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
-
-# Python
-# PATH="~/.pyenv/bin:$PATH"
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
 # enable zsh autosuggestions
 source ~/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # enable syntax highlighting
 source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# cask (emacs)
-export PATH="$HOME/.cask/bin:$PATH"
 
 # Starship prompt
 eval "$(starship init zsh)"
